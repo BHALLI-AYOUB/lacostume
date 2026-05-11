@@ -916,6 +916,42 @@
         transform: none;
       }
     }
+
+    @media (max-width: 768px) {
+      .hero-media.hero-main-image-wrapper {
+        align-items: center;
+        background: transparent;
+        display: flex;
+        height: auto;
+        justify-content: center;
+        margin: 1rem auto 0;
+        max-width: 430px;
+        min-height: 0;
+        overflow: visible;
+        padding: 0;
+        width: 100%;
+      }
+      .hero-media.hero-main-image-wrapper::before,
+      .hero-media.hero-main-image-wrapper::after {
+        display: none;
+      }
+      .hero-media.hero-main-image-wrapper img.hero-main-image {
+        border-left: 0;
+        display: block;
+        height: auto;
+        max-height: none;
+        object-fit: contain;
+        object-position: center bottom;
+        transform: none;
+        width: min(100%, 420px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-media.hero-main-image-wrapper img.hero-main-image {
+        width: min(100%, 340px);
+      }
+    }
   </style>
 </head>
 <body>
