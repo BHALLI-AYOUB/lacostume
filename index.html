@@ -451,7 +451,7 @@
     .insta-tile:hover em { background: var(--gold); color: var(--black); }
 
     .contact-map { display: block; }
-    .contact-layout { display: grid; gap: 38px; grid-template-columns: minmax(0, 1fr) 460px; }
+    .contact-layout { display: grid; gap: 38px; grid-template-columns: 1fr; }
     .map-box { position: relative; }
     .map-frame {
       border: 1px solid rgba(201, 168, 76, .2);
@@ -499,133 +499,10 @@
       padding: 10px 16px;
     }
     .contact-pill span { color: var(--gold); font-style: normal; }
-    .contact-form-card {
-      background: var(--black-card);
-      border: 1px solid rgba(201, 168, 76, .2);
-      border-radius: 2px;
-      padding: 2.5rem;
-    }
-    .contact-form-card h3 {
-      color: var(--gold);
-      font-family: var(--font-serif);
-      font-size: 1.4rem;
-      font-style: italic;
-    }
-    .contact-form-card > p {
-      color: rgba(245, 240, 232, .5);
-      font-family: var(--font-sans);
-      font-size: .8rem;
-      margin-top: 4px;
-    }
-    .form-divider { background: var(--gold); height: 1px; margin: .75rem 0 1.5rem; width: 40px; }
-    .contact-form { display: block; }
-    .field { margin-bottom: 1.5rem; position: relative; }
-    .field input,
-    .field select,
-    .field textarea {
-      background: transparent;
-      border: 0;
-      border-bottom: 1px solid rgba(201, 168, 76, .25);
-      color: var(--white);
-      font-family: var(--font-sans);
-      font-size: .95rem;
-      outline: none;
-      padding: 14px 0 10px;
-      transition: border-color .3s ease;
-      width: 100%;
-    }
-    .field input::placeholder,
-    .field textarea::placeholder { color: transparent; }
-    .field select {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23C9A84C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-      background-position: right 0 center;
-      background-repeat: no-repeat;
-      padding-right: 26px;
-    }
-    .field select option { background: var(--black); }
-    .field textarea { min-height: 94px; resize: none; }
-    .field input[type="date"] {
-      color: transparent;
-      cursor: pointer;
-      padding-left: 28px;
-      position: relative;
-    }
-    .field input[type="date"]:focus,
-    .field.active input[type="date"] { color: var(--white); }
-    .field.date-field::before {
-      content: "📅";
-      font-size: 1rem;
-      left: 0;
-      line-height: 1;
-      position: absolute;
-      top: 14px;
-      z-index: 1;
-    }
-    .field.date-field label { left: 28px; }
-    .field.date-field:focus-within label,
-    .field.date-field.active label { left: 0; }
-    .field input[type="date"]::-webkit-calendar-picker-indicator {
-      cursor: pointer;
-      filter: invert(71%) sepia(35%) saturate(602%) hue-rotate(5deg) brightness(90%) contrast(87%);
-      opacity: .9;
-    }
-    .field label {
-      color: rgba(245, 240, 232, .4);
-      font-family: var(--font-sans);
-      font-size: .85rem;
-      left: 0;
-      letter-spacing: .08em;
-      pointer-events: none;
-      position: absolute;
-      top: 14px;
-      transition: all .25s ease;
-    }
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus,
-    .field.active input,
-    .field.active select,
-    .field.active textarea { border-bottom-color: var(--gold); }
-    .field:focus-within label,
-    .field.active label {
-      color: var(--gold);
-      font-size: .7rem;
-      letter-spacing: .15em;
-      top: -8px;
-    }
-    .form-row { display: grid; gap: 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .contact-form button {
-      align-items: center;
-      background: var(--gold);
-      border: 0;
-      color: var(--black);
-      cursor: pointer;
-      display: flex;
-      font-family: var(--font-sans);
-      font-size: .8rem;
-      font-weight: 600;
-      gap: 10px;
-      justify-content: center;
-      letter-spacing: .25em;
-      margin-top: .5rem;
-      padding: 16px;
-      text-transform: uppercase;
-      width: 100%;
-    }
-    .contact-form button svg { height: 16px; transition: transform .3s ease; width: 16px; }
-    .contact-form button:hover { background: var(--gold-light); box-shadow: 0 8px 25px rgba(201, 168, 76, .3); transform: translateY(-2px); }
-    .contact-form button:hover svg { transform: translateX(4px); }
-    .privacy-note {
-      color: rgba(245, 240, 232, .35);
-      font-size: .72rem;
-      margin-top: 1rem;
-      text-align: center;
-    }
     .info-icon { color: var(--gold); font-style: normal; }
 
     .site-footer { background: var(--black-card); border-top: 1px solid rgba(201, 168, 76, .2); padding: 58px clamp(24px, 5vw, 76px) 24px; }
-    .footer-grid { display: grid; gap: 28px; grid-template-columns: 1.45fr 1fr 1.15fr 1.15fr 1.25fr; }
+    .footer-grid { display: grid; gap: 28px; grid-template-columns: 2fr 1fr 1fr 1fr; }
     .footer-grid > div { display: flex; flex-direction: column; gap: 10px; }
     .footer-grid h3 { color: #fff; font-family: var(--font-sans); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; }
     .footer-grid a, .footer-grid span, .footer-grid p { color: rgba(245, 240, 232, .62); }
@@ -634,11 +511,6 @@
     .social-links a { align-items: center; border: 1px solid rgba(201, 168, 76, .3); border-radius: 50%; display: grid; height: 38px; place-items: center; width: 38px; }
     .social-links svg { fill: var(--gold-light); height: 18px; width: 18px; }
     .social-links a:hover { background: rgba(201, 168, 76, .15); transform: translateY(-3px); }
-    .newsletter { display: grid; gap: 14px; }
-    .newsletter input { background: transparent; border: 0; border-bottom: 1px solid rgba(201, 168, 76, .4); color: var(--white); font: 400 1rem var(--font-serif); padding: 10px 0; }
-    .newsletter input::placeholder { color: rgba(245, 240, 232, .4); }
-    .newsletter button { background: var(--gold); border: 0; color: var(--black); cursor: pointer; font-family: var(--font-sans); font-size: .75rem; letter-spacing: .15em; padding: 13px; text-transform: uppercase; width: 100%; }
-    .newsletter button:hover { background: var(--gold-light); }
     .footer-bottom { align-items: center; border-top: 1px solid rgba(201, 168, 76, .12); display: flex; justify-content: space-between; margin-top: 34px; padding-top: 20px; }
     .footer-bottom p { color: rgba(245, 240, 232, .55); }
     .footer-bottom div { display: flex; gap: 8px; }
@@ -707,8 +579,6 @@
       .category-grid, .testimonial-grid, .timeline, .advantage-grid, .contact-map, .footer-grid { grid-template-columns: 1fr; }
       .contact-layout { grid-template-columns: 1fr; }
       .map-frame { height: 260px; }
-      .contact-form-card { padding: 1.5rem; }
-      .form-row { grid-template-columns: 1fr; gap: 0; }
       .timeline::before { display: none; }
       .product-grid { grid-template-columns: 1fr; }
       .instagram-grid { grid-template-columns: repeat(3, 1fr); }
@@ -849,14 +719,11 @@
 
       .contact-layout { grid-template-columns: 1fr; }
       .map-frame { height: 280px; }
-      .contact-form-card { width: 100%; }
-      .contact-form input, .contact-form select, .contact-form textarea { font-size: 16px; width: 100%; }
 
       .footer-grid { grid-template-columns: 1fr; }
       .footer-grid > div { margin-bottom: 2rem; }
       .footer-grid > div:first-child { align-items: center; text-align: center; }
       .social-links { justify-content: center; }
-      .newsletter input, .newsletter button { width: 100%; }
     }
 
     @media (max-width: 640px) {
@@ -897,7 +764,7 @@
       .hero { padding-inline: .85rem; }
       .button { font-size: .62rem; letter-spacing: .12em; }
       .hero-pills span { width: 100%; }
-      .product-card, .testimonial-card, .advantage-card, .contact-form-card { padding: 1rem; }
+      .product-card, .testimonial-card, .advantage-card { padding: 1rem; }
     }
 
     @media (max-width: 1200px) {
@@ -1209,11 +1076,11 @@
       </div>
       <div class="hero-overlay"></div>
       <div class="hero-copy reveal">
-        <p class="eyebrow">— Collection 2025 —</p>
+        <p class="eyebrow">— Collection 2026 —</p>
         <h1><span class="hero-title-white">Location de Costumes</span><span class="hero-title-gold">Élégants à Casablanca</span></h1>
         <p>Location de costumes pour homme à Casablanca pour tous vos événements : mariage, soirée, business et plus encore.</p>
         <div class="hero-buttons"><a class="button button-gold" href="#contact">📅 Réserver Maintenant</a><a class="button button-outline" href="#modeles">Découvrir les Costumes</a></div>
-        <div class="hero-pills"><span>📍 Casablanca, Oulfa Maroc</span><span>📞 060 67 44 844, Réponse rapide</span><span>🚚 Livraison gratuite partout au Maroc</span></div>
+        <div class="hero-pills"><span>📍 Casablanca, Oulfa Maroc</span><span>📞 060 67 44 844, Réponse rapide</span></div>
       </div>
       <div class="hero-media hero-main-image-wrapper reveal"><img class="hero-main-image" src="assets/images/hero-smoking-luxe.png" alt="Costume smoking noir luxe sur mannequin dans une boutique" loading="lazy"></div>
       <div class="hero-badge"><strong>500+</strong> Modèles disponibles</div>
@@ -1246,9 +1113,9 @@
       <div class="testimonial-grid">
         <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Youssef M." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>Le costume était impeccable, livré à temps à Casablanca. Les conseils pour la taille ont vraiment fait la différence le jour du mariage.</p><strong>Youssef M. <span>— Mariage 2024</span></strong></article>
         <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/71.jpg" alt="Amine R." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>Service sérieux, costume propre et élégant pour une soirée professionnelle. Réservation simple et équipe très réactive sur WhatsApp.</p><strong>Amine R. <span>— Soirée Business</span></strong></article>
-        <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Karim B." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>J'avais besoin d'un smoking noir en urgence. LE COSTUME.MA a trouvé la bonne taille et la livraison s'est faite sans stress.</p><strong>Karim B. <span>— Cérémonie</span></strong></article>
+        <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Karim B." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>J'avais besoin d'un smoking noir en urgence. LE COSTUME.MA a trouvé la bonne taille sans stress.</p><strong>Karim B. <span>— Cérémonie</span></strong></article>
         <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Hamza L." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>Costume reçu la veille du mariage, impeccable et parfaitement repassé. Le service WhatsApp est réactif et l'équipe très professionnelle. Je recommande vivement Le Costume.ma !</p><strong>Hamza L. <span>— Mariage 2025</span></strong></article>
-        <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Saad M." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>Première expérience de location de costume et vraiment bluffant. Le smoking bleu marine était magnifique, tissu de qualité et livraison gratuite jusqu'à Rabat. Merci à toute l'équipe !</p><strong>Saad M. <span>— Soirée d'entreprise</span></strong></article>
+        <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Saad M." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>Première expérience de location de costume et vraiment bluffant. Le smoking bleu marine était magnifique, tissu de qualité. Merci à toute l'équipe !</p><strong>Saad M. <span>— Soirée d'entreprise</span></strong></article>
         <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Nadia K." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>J'ai loué un costume pour mon frère pour sa remise de diplôme. Le processus était simple, rapide et le résultat parfait. Le Bordeaux Prestige lui allait à merveille !</p><strong>Nadia K. <span>— Remise de Diplôme 2025</span></strong></article>
       </div>
     </section>
@@ -1258,8 +1125,7 @@
       <div class="timeline animate-on-scroll">
         <article class="step-item animate-on-scroll"><span>1</span><svg viewBox="0 0 24 24" fill="none"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><h3>Choisissez votre costume</h3><p>Parcourez notre catalogue en ligne</p></article>
         <article class="step-item animate-on-scroll"><span>2</span><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg><h3>Réservez en ligne</h3><p>Sélectionnez vos dates et votre taille</p></article>
-        <article class="step-item animate-on-scroll"><span>3</span><svg viewBox="0 0 24 24" fill="none"><path d="M3 6h12v10H3zM15 10h4l2 3v3h-6z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg><h3>Livraison à domicile</h3><p>Gratuite partout au Maroc</p></article>
-        <article class="step-item animate-on-scroll"><span>4</span><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7"/><path d="m12 2 1.6 3.3 3.6.5-2.6 2.5.6 3.6-3.2-1.7-3.2 1.7.6-3.6-2.6-2.5 3.6-.5L12 2Z"/></svg><h3>Profitez de l'événement</h3><p>Retournez après usage sans stress</p></article>
+        <article class="step-item animate-on-scroll"><span>3</span><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7"/><path d="m12 2 1.6 3.3 3.6.5-2.6 2.5.6 3.6-3.2-1.7-3.2 1.7.6-3.6-2.6-2.5 3.6-.5L12 2Z"/></svg><h3>Profitez de l'événement</h3><p>Retournez après usage sans stress</p></article>
       </div>
     </section>
 
@@ -1267,10 +1133,8 @@
       <div class="section-title animate-on-scroll"><h2>Pourquoi Nous Choisir ?</h2><span class="ornament"></span></div>
       <div class="advantage-grid">
         <article class="advantage-card animate-on-scroll"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h12l4 6-10 12L2 9l4-6Z"/><path d="M2 9h20M8 3l4 18 4-18"/></svg><h3>Costumes Premium</h3><p>Tissus haut de gamme, entretien professionnel inclus</p></article>
-        <article class="advantage-card animate-on-scroll"><svg viewBox="0 0 24 24" fill="none"><path d="M3 6h12v10H3zM15 10h4l2 3v3h-6z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg><h3>Livraison Gratuite</h3><p>Partout au Maroc sous 24-48h</p></article>
         <article class="advantage-card animate-on-scroll"><svg viewBox="0 0 24 24" fill="none"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg><h3>Échange Facile</h3><p>Changement de taille garanti sans frais</p></article>
         <article class="advantage-card animate-on-scroll"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20 20 4M14 4l6 6M4 6h8M4 10h5"/></svg><h3>Sur-Mesure</h3><p>Ajustements disponibles selon votre morphologie</p></article>
-        <article class="advantage-card animate-on-scroll"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 15h2"/></svg><h3>Paiement à la Livraison</h3><p>Sécurisé, sans risque</p></article>
         <article class="advantage-card animate-on-scroll"><svg viewBox="0 0 24 24" fill="none"><path d="M6.5 10.5c1.6 3.1 3.9 5.4 7 7l2-2c.3-.3.7-.4 1.1-.3 1 .3 2 .5 3.1.5.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.3c.6 0 1 .4 1 1 0 1.1.2 2.1.5 3.1.1.4 0 .8-.3 1.1l-2 2.3Z"/></svg><h3>Support 7J/7</h3><p>Notre équipe disponible pour vous conseiller</p></article>
       </div>
     </section>
@@ -1296,7 +1160,7 @@
         <span class="ornament"></span>
       </div>
       <div class="contact-layout">
-        <div class="map-box animate-on-scroll">
+        <div class="map-box animate-on-scroll" id="contact">
           <div class="map-frame">
             <iframe title="Carte Casablanca Oulfa" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Casablanca%20Oulfa%20Maroc&output=embed"></iframe>
           </div>
@@ -1310,24 +1174,6 @@
             <div class="contact-pill"><span>✉</span> contact@lecostume.ma</div>
           </div>
         </div>
-        <aside class="contact-form-card animate-on-scroll" id="contact">
-          <h3>Faire une Réservation</h3>
-          <p>Réponse sous 30 minutes via WhatsApp</p>
-          <div class="form-divider"></div>
-          <form class="contact-form">
-            <div class="field"><input id="nom" type="text" name="nom"><label for="nom">VOTRE NOM</label></div>
-            <div class="field"><input id="telephone" type="tel" name="telephone"><label for="telephone">TÉLÉPHONE</label></div>
-            <div class="field"><input id="email" type="email" name="email"><label for="email">EMAIL (optionnel)</label></div>
-            <div class="field"><select id="evenement" name="evenement"><option value=""></option><option>Mariage</option><option>Soirée Business</option><option>Soirée de Gala</option><option>Cérémonie</option><option>Remise de Diplôme</option><option>Autre</option></select><label for="evenement">TYPE D'ÉVÉNEMENT</label></div>
-            <div class="form-row">
-              <div class="field date-field"><input id="date" type="date" name="date"><label for="date">DATE DE L'ÉVÉNEMENT</label></div>
-              <div class="field"><input id="taille" type="text" name="taille"><label for="taille">VOTRE TAILLE (ex: 52)</label></div>
-            </div>
-            <div class="field"><textarea id="reservation-message" name="message" rows="3"></textarea><label for="reservation-message">MESSAGE</label></div>
-            <button type="submit">ENVOYER LA DEMANDE <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          </form>
-          <p class="privacy-note">🔒 Vos données sont confidentielles — Réponse garantie sous 30min</p>
-        </aside>
       </div>
     </section>
   </main>
@@ -1336,9 +1182,8 @@
     <div class="footer-grid">
       <div><a class="brand" href="#accueil"><span class="brand-mark"><img src="assets/images/logo.png" alt="Logo LE COSTUME.MA" loading="lazy"></span><span class="brand-copy"><span class="brand-name">LE COSTUME.MA</span><span class="brand-subtitle">Location de Costumes pour Homme</span></span></a><p>Location de costumes pour homme à Casablanca pour mariage, soirée, business et événements élégants.</p><div class="social-links"><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v7h4v-7h3l1-4h-4V9c0-.7.3-1 1-1Z"/></svg></a><a href="https://instagram.com/lecostume.ma" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm6-1.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></a><a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M15 3c.4 3 2 4.7 5 5v4c-1.9 0-3.6-.6-5-1.8V16a6 6 0 1 1-6-6c.4 0 .7 0 1 .1v4.2c-.3-.1-.6-.2-1-.2a2 2 0 1 0 2 2V3h4Z"/></svg></a><a href="https://wa.me/212606744844" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.6 13.7c-.2.6-1.2 1.1-1.7 1.2-.5.1-1.1.2-3.5-.8-3-1.3-5-4.3-5.1-4.5-.2-.2-1.2-1.6-1.2-3 0-1.5.7-2.2 1-2.5.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.5-.2.8-.1l1.8.9c.3.1.5.2.5.4 0 .2 0 .8-.2 1.4Z"/></svg></a></div></div>
       <div><h3>Liens Rapides</h3><a href="#accueil">Accueil</a><a href="#costumes">Nos Costumes</a><a href="#modeles">Modèles</a><a href="#collections">Collections</a><a href="#apropos">À Propos</a><a href="#contact">Contact</a></div>
-      <div><h3>Informations</h3><a href="#">Livraison gratuite au Maroc</a><a href="#">Paiement à la livraison</a><a href="#">Retours & échanges</a><a href="#">Conditions générales</a></div>
+      <div><h3>Informations</h3><a href="#">Retours & échanges</a><a href="#">Conditions générales</a></div>
       <div><h3>Contactez-Nous</h3><span><span class="info-icon">☎</span> 060 67 44 844</span><span><span class="info-icon">✉</span> contact@lecostume.ma</span><span><span class="info-icon">⌖</span> Casablanca, Oulfa, Maroc</span></div>
-      <div><h3>Newsletter</h3><p>Abonnez-vous pour recevoir nos offres exclusives !</p><form class="newsletter"><input type="email" placeholder="Votre email" aria-label="Votre email"><button type="submit">S'abonner</button></form></div>
     </div>
     <div class="footer-bottom"><p>© 2025 LE COSTUME.MA — Tous droits réservés.</p><div><span>VISA</span><span>Mastercard</span><span>CMI</span></div></div>
   </footer>
