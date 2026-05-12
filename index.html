@@ -348,6 +348,7 @@
     .section-title h2 { font-size: clamp(2rem, 4vw, 3.4rem); }
     .section-dark .section-title h2 { color: var(--gold); }
     .section-title p { color: #5d5548; margin-top: 8px; }
+    .section-actions { display: flex; justify-content: center; margin-top: 34px; }
     .ornament { border: 1px solid var(--gold); display: inline-block; height: 11px; margin-top: 18px; transform: rotate(45deg); width: 11px; }
 
     .category-grid { display: grid; gap: 16px; grid-template-columns: repeat(4, 1fr); }
@@ -453,12 +454,21 @@
     .insta-tile:hover em { background: var(--gold); color: var(--black); }
 
     .contact-map { display: block; }
-    .contact-layout { display: grid; gap: 38px; grid-template-columns: 1fr; }
+    .contact-layout {
+      align-items: stretch;
+      display: grid;
+      gap: clamp(20px, 2.4vw, 34px);
+      grid-template-columns: minmax(0, .95fr) minmax(340px, .55fr);
+      justify-content: space-between;
+      margin: 0 auto;
+      max-width: 1240px;
+    }
     .map-box { position: relative; }
     .map-frame {
       border: 1px solid rgba(201, 168, 76, .2);
-      height: 420px;
-      margin-bottom: 18px;
+      height: 320px;
+      margin-bottom: 0;
+      overflow: hidden;
       position: relative;
     }
     .map-frame::before,
@@ -473,6 +483,13 @@
     .map-frame::before { border-left: 2px solid var(--gold); border-top: 2px solid var(--gold); left: -1px; top: -1px; }
     .map-frame::after { border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); bottom: -1px; right: -1px; }
     .map-box iframe { border: 0; height: 100%; width: 100%; }
+    .contact-side {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
     .map-button {
       align-items: center;
       background: transparent;
@@ -489,6 +506,7 @@
     .map-button svg { height: 17px; stroke: currentColor; stroke-width: 1.6; width: 17px; }
     .map-button:hover { background: var(--gold); color: var(--black); }
     .contact-pills { display: grid; gap: 10px; margin-top: 18px; }
+    .contact-side .contact-pills { grid-template-columns: 1fr; }
     .contact-pill {
       align-items: center;
       background: rgba(201, 168, 76, .08);
@@ -496,11 +514,20 @@
       border-radius: 4px;
       color: var(--white);
       display: flex;
-      font-size: 1.12rem;
+      font-size: 1rem;
       gap: 10px;
-      padding: 14px 18px;
+      line-height: 1.35;
+      padding: 13px 16px;
     }
-    .contact-pill span { color: var(--gold); font-style: normal; }
+    .contact-pill span {
+      color: var(--gold);
+      display: inline-grid;
+      flex: 0 0 18px;
+      font-style: normal;
+      place-items: center;
+      width: 18px;
+    }
+    .contact-pill svg { height: 17px; stroke: currentColor; stroke-width: 1.7; width: 17px; }
     .info-icon { color: var(--gold); font-style: normal; }
 
     .site-footer { background: var(--black-card); border-top: 1px solid rgba(201, 168, 76, .2); padding: 58px clamp(24px, 5vw, 76px) 24px; }
@@ -1041,14 +1068,17 @@
 
     @media (max-width: 1200px) {
       .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .contact-layout { grid-template-columns: minmax(0, .9fr) minmax(320px, .55fr); }
       .contact-pills { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .contact-side .contact-pills { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 1024px) {
       .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .testimonial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .map-frame { height: 360px; }
+      .map-frame { height: 300px; }
+      .contact-layout { grid-template-columns: minmax(0, 1fr) minmax(290px, .72fr); }
     }
 
     @media (max-width: 768px) {
@@ -1213,6 +1243,71 @@
         width: 34px;
       }
     }
+
+    /* Final mobile polish for recent contact/catalogue updates */
+    @media (max-width: 900px) {
+      .contact-layout {
+        gap: 18px;
+        grid-template-columns: 1fr;
+        max-width: 720px;
+      }
+      .contact-side {
+        justify-content: flex-start;
+      }
+      .map-button {
+        justify-content: center;
+        width: 100%;
+      }
+      .contact-side .contact-pills {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section-actions .button {
+        justify-content: center;
+        width: min(100%, 390px);
+      }
+      .contact-map {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .contact-layout {
+        gap: 16px;
+        width: 100%;
+      }
+      .map-frame {
+        height: clamp(210px, 58vw, 270px);
+      }
+      .contact-pill {
+        align-items: flex-start;
+        font-size: .92rem;
+        gap: 9px;
+        padding: 12px 13px;
+      }
+      .contact-pill span {
+        margin-top: 2px;
+      }
+      .contact-pill svg {
+        height: 16px;
+        width: 16px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .map-frame {
+        height: 220px;
+      }
+      .contact-pill {
+        font-size: .88rem;
+      }
+      .whatsapp-float {
+        bottom: .9rem;
+        height: 48px;
+        right: .9rem;
+        width: 48px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1300,6 +1395,7 @@
         <article class="product-card animate-on-scroll"><img src="assets/images/bage.png" alt="Beige Élégance" loading="lazy"><h3>Beige Élégance</h3><a href="#contact">Réserver</a></article>
         <article class="product-card animate-on-scroll"><img src="assets/images/greenroyal.png" alt="Vert Royal" loading="lazy"><h3>Vert Royal</h3><a href="#contact">Réserver</a></article>
       </div>
+      <div class="section-actions animate-on-scroll"><a class="button button-outline" href="nos-produits.html">Voir plus</a></div>
     </section>
 
     <section class="section section-dark contact-map" id="apropos">
@@ -1311,16 +1407,18 @@
       <div class="contact-layout">
         <div class="map-box animate-on-scroll" id="contact">
           <div class="map-frame">
-            <iframe title="Carte Casablanca Oulfa" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Casablanca%20Oulfa%20Maroc&output=embed"></iframe>
+            <iframe title="Carte Le Costume.ma Casablanca" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=le%20costume.ma%20-%20Location%20costume%20Homme%20Casablanca%2C%20%D8%A7%D9%84%D8%AF%D8%A7%D8%B1%20%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A7%D8%AA%D8%8C%20Casablanca%2020260&output=embed"></iframe>
           </div>
-          <a class="map-button" href="https://www.google.com/maps/search/?api=1&query=Casablanca%20Oulfa%20Maroc" target="_blank" rel="noopener">
+        </div>
+        <div class="contact-side animate-on-scroll">
+          <a class="map-button" href="https://www.google.com/maps/search/?api=1&query=le%20costume.ma%20-%20Location%20costume%20Homme%20Casablanca%2C%20%D8%A7%D9%84%D8%AF%D8%A7%D8%B1%20%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A7%D8%AA%D8%8C%20Casablanca%2020260" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
             Ouvrir dans Google Maps
           </a>
           <div class="contact-pills">
-            <div class="contact-pill"><span>📍</span> Casablanca, Oulfa, Maroc</div>
-            <div class="contact-pill"><span>📞</span> 060 67 44 844</div>
-            <div class="contact-pill"><span>✉</span> contact@lecostume.ma</div>
+            <div class="contact-pill"><span><svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></span> le costume.ma - Location costume Homme Casablanca, الدار شارع الكليات، Casablanca 20260</div>
+            <div class="contact-pill"><span><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6.4 6.4l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg></span> 060 67 44 844</div>
+            <div class="contact-pill"><span><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span> contact@lecostume.ma</div>
           </div>
         </div>
       </div>
@@ -1490,6 +1588,30 @@
       form.reset();
       form.querySelectorAll(".field").forEach((wrapper) => wrapper.classList.remove("active"));
     }));
+
+    const whatsappNumber = "212606744844";
+    const buildWhatsappLink = (message) => `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    const defaultReservationMessage = "Bonjour LE COSTUME.MA, je souhaite réserver un costume. Pouvez-vous me confirmer les disponibilités et les tailles ?";
+    const setWhatsappReservation = (link, message) => {
+      if (!link) return;
+      link.href = buildWhatsappLink(message);
+      link.target = "_blank";
+      link.rel = "noopener";
+    };
+
+    document.querySelectorAll(".nav-cta, .hero-buttons .button-gold").forEach((link) => {
+      setWhatsappReservation(link, defaultReservationMessage);
+    });
+
+    document.querySelectorAll(".product-card").forEach((card) => {
+      const productName = card.querySelector("h3")?.textContent?.trim();
+      const reserveLink = card.querySelector("a");
+      if (!productName || !reserveLink) return;
+      setWhatsappReservation(
+        reserveLink,
+        `Bonjour LE COSTUME.MA, je souhaite réserver le costume "${productName}". Pouvez-vous me confirmer la disponibilité et les tailles ?`
+      );
+    });
   </script>
 </body>
 </html>
