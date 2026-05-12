@@ -189,7 +189,7 @@
       grid-template-columns: minmax(0, 1fr) 42%;
       min-height: 100vh;
       overflow: hidden;
-      padding: 80px clamp(24px, 5vw, 76px) 72px;
+      padding: 64px clamp(24px, 5vw, 76px) 112px;
       position: relative;
     }
     .hero::before {
@@ -223,6 +223,7 @@
       z-index: 1;
     }
     .hero-copy, .hero-media, .hero-badge { position: relative; z-index: 3; }
+    .hero-copy { transform: translateY(-28px); }
     .eyebrow {
       animation: fadeDown .8s ease both .2s;
       color: var(--gold);
@@ -351,8 +352,9 @@
 
     .category-grid { display: grid; gap: 16px; grid-template-columns: repeat(4, 1fr); }
     .category-card {
+      background: #0a0a0a;
+      aspect-ratio: 2 / 3;
       border: 1px solid rgba(201, 168, 76, .14);
-      min-height: 480px;
       overflow: hidden;
       position: relative;
     }
@@ -360,7 +362,7 @@
     .category-card::after { background: var(--gold); bottom: 0; content: ""; height: 2px; left: 0; position: absolute; transform: scaleX(0); transform-origin: left; width: 100%; z-index: 3; }
     .category-card:hover::before { opacity: .3; }
     .category-card:hover::after { transform: scaleX(1); }
-    .category-card img { filter: brightness(1.15) contrast(1.05); height: 100%; inset: 0; object-fit: cover; position: absolute; transition: transform .6s ease, filter .6s ease; width: 100%; }
+    .category-card img { filter: brightness(1.15) contrast(1.05); height: 100%; inset: 0; object-fit: cover; object-position: center top; position: absolute; transition: transform .6s ease, filter .6s ease; width: 100%; }
     .category-card:hover img { transform: scale(1.06); }
     .category-card span { bottom: 30px; left: 30px; position: absolute; z-index: 2; }
     .category-card strong { color: #fff; display: block; font-size: 2rem; text-transform: uppercase; }
@@ -494,9 +496,9 @@
       border-radius: 4px;
       color: var(--white);
       display: flex;
-      font-size: .85rem;
+      font-size: 1.12rem;
       gap: 10px;
-      padding: 10px 16px;
+      padding: 14px 18px;
     }
     .contact-pill span { color: var(--gold); font-style: normal; }
     .info-icon { color: var(--gold); font-style: normal; }
@@ -623,7 +625,7 @@
       .feature-item { border-right: 0; }
       .feature-item:nth-child(odd) { border-right: 1px solid rgba(201, 168, 76, .16); }
       .category-grid { grid-template-columns: 1fr; }
-      .category-card { min-height: 350px; width: 100%; }
+      .category-card { width: 100%; }
       .category-card img { height: 100%; object-fit: cover; width: 100%; }
       .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .testimonial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1025,6 +1027,192 @@
       body.mobile-menu-active .menu-toggle span:nth-child(2) { opacity: 0; transform: scaleX(0); }
       body.mobile-menu-active .menu-toggle span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
     }
+
+    /* Final responsive overrides for the updated layout */
+    .contact-pills { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .contact-pill {
+      font-size: clamp(1rem, 1.4vw, 1.2rem);
+      justify-content: center;
+      line-height: 1.35;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      text-align: center;
+    }
+
+    @media (max-width: 1200px) {
+      .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .contact-pills { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 1024px) {
+      .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .testimonial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .map-frame { height: 360px; }
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 3rem 1.1rem; }
+      .category-grid,
+      .advantage-grid,
+      .contact-layout,
+      .footer-grid { grid-template-columns: 1fr; }
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .product-card { padding: .65rem; }
+      .product-card h3 { font-size: .82rem; }
+      .product-card a { min-height: 44px; display: grid; place-items: center; }
+      .contact-pills { grid-template-columns: 1fr; }
+      .contact-pill {
+        font-size: 1rem;
+        justify-content: flex-start;
+        padding: 13px 15px;
+        text-align: left;
+      }
+      .map-frame { height: 300px; }
+      .map-button {
+        justify-content: center;
+        width: 100%;
+      }
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 1.4rem;
+        padding-left: 0;
+      }
+      .timeline::before { display: none; }
+      .step-item {
+        align-items: flex-start;
+        display: grid;
+        gap: .85rem;
+        grid-template-columns: 44px 1fr;
+        text-align: left;
+      }
+      .step-item > span {
+        height: 40px;
+        margin: 0;
+        width: 40px;
+      }
+      .step-item svg { grid-column: 1; margin: 0 auto; }
+      .step-item h3,
+      .step-item p { grid-column: 2; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 520px) {
+      .section { padding: 2.4rem 1rem; }
+      .category-grid,
+      .product-grid,
+      .instagram-grid { grid-template-columns: 1fr; }
+      .category-card { aspect-ratio: 4 / 5; }
+      .product-card {
+        margin-inline: auto;
+        max-width: 390px;
+        width: 100%;
+      }
+      .contact-pill { font-size: .96rem; }
+      .map-frame { height: 260px; }
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding-bottom: 4.5rem;
+        padding-top: 2rem;
+      }
+      .hero-copy {
+        transform: translateY(-18px);
+      }
+      .hero-pills {
+        margin-bottom: 1.25rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding-bottom: 4rem;
+        padding-top: 1.25rem;
+      }
+      .hero-copy {
+        transform: translateY(-10px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-overlay {
+        box-sizing: border-box;
+        min-height: 100dvh;
+        overflow-y: auto;
+        padding: 5.25rem 1rem 7rem;
+        row-gap: 1rem;
+      }
+      .mobile-menu-top {
+        padding: .7rem 1rem;
+      }
+      .mobile-menu-line {
+        top: 64px;
+      }
+      .mobile-menu-links {
+        gap: .15rem;
+        margin: auto 0;
+        width: min(100%, 360px);
+      }
+      .mobile-menu-links a {
+        display: block;
+        font-size: clamp(1.65rem, 8vw, 2.2rem);
+        line-height: 1.05;
+        padding: .5rem .75rem;
+        text-align: center;
+        width: 100%;
+      }
+      .mobile-menu-bottom {
+        bottom: 1.5rem;
+        left: 1rem;
+        right: 1rem;
+      }
+      .mobile-menu-phone {
+        font-size: .82rem;
+        letter-spacing: .12em;
+      }
+      .mobile-menu-socials {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 380px), (max-height: 700px) {
+      .mobile-menu-overlay {
+        justify-content: flex-start;
+        padding-bottom: 5.75rem;
+        padding-top: 4.75rem;
+      }
+      .mobile-menu-logo {
+        height: 40px;
+        width: 40px;
+      }
+      .mobile-menu-close {
+        font-size: 1.35rem;
+      }
+      .mobile-menu-line {
+        top: 58px;
+      }
+      .mobile-menu-links {
+        gap: 0;
+      }
+      .mobile-menu-links a {
+        font-size: clamp(1.35rem, 7.5vw, 1.85rem);
+        padding: .38rem .5rem;
+      }
+      .mobile-menu-bottom {
+        bottom: 1rem;
+      }
+      .mobile-menu-socials a {
+        height: 34px;
+        width: 34px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1089,10 +1277,10 @@
     <section class="section section-light" id="costumes">
       <div class="section-title animate-on-scroll"><h2>Nos Catégories</h2><span class="ornament"></span></div>
       <div class="category-grid">
-        <a class="category-card animate-on-scroll" href="#modeles"><img src="assets/images/blanc.png" alt="Mariage" loading="lazy"><span><strong>Mariage</strong><em>Voir la collection →</em></span></a>
-        <a class="category-card animate-on-scroll" href="#modeles"><img src="assets/images/hero-costume.jpg" alt="Smokings" loading="lazy"><span><strong>Smokings</strong><em>Voir la collection →</em></span></a>
-        <a class="category-card animate-on-scroll" href="#modeles"><img src="assets/images/category-costumes.jpg" alt="Classiques" loading="lazy"><span><strong>Classiques</strong><em>Voir la collection →</em></span></a>
-        <a class="category-card animate-on-scroll" href="#modeles"><img src="assets/images/royal.png" alt="Croisées" loading="lazy"><span><strong>Croisées</strong><em>Voir la collection →</em></span></a>
+        <a class="category-card animate-on-scroll" href="#modeles"><img src="assets/images/category-smoking.jpg" alt="Smokings" loading="lazy"><span><strong>Smokings</strong><em>Voir la collection →</em></span></a>
+        <a class="category-card animate-on-scroll" href="#modeles"><img src="assets/images/category-croisees.jpg" alt="Croisées" loading="lazy"><span><strong>Croisées</strong><em>Voir la collection →</em></span></a>
+        <a class="category-card animate-on-scroll" href="#modeles"><img src="assets/images/category-classiques.jpg" alt="Classiques" loading="lazy"><span><strong>Classiques</strong><em>Voir la collection →</em></span></a>
+        <a class="category-card animate-on-scroll" href="#modeles"><img src="assets/images/mariage.jpeg" alt="Mariage" loading="lazy"><span><strong>Mariage</strong><em>Voir la collection →</em></span></a>
       </div>
     </section>
 
@@ -1105,52 +1293,13 @@
         <article class="product-card animate-on-scroll"><img src="assets/images/red.png" alt="Bordeaux Prestige" loading="lazy"><h3>Bordeaux Prestige</h3><a href="#contact">Réserver</a></article>
         <article class="product-card animate-on-scroll"><img src="assets/images/green.png" alt="Vert Émeraude" loading="lazy"><h3>Vert Émeraude</h3><a href="#contact">Réserver</a></article>
         <article class="product-card animate-on-scroll"><img src="assets/images/gris.png" alt="Gris Clair" loading="lazy"><h3>Gris Clair</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/bluestrong.png" alt="Bleu Royal" loading="lazy"><h3>Bleu Royal</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/bluee.png" alt="Bleu Élégance" loading="lazy"><h3>Bleu Élégance</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/royal.png" alt="Royal Prestige" loading="lazy"><h3>Royal Prestige</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/blackpapion.png" alt="Smoking Papillon Noir" loading="lazy"><h3>Smoking Papillon Noir</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/bage.png" alt="Beige Élégance" loading="lazy"><h3>Beige Élégance</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/greenroyal.png" alt="Vert Royal" loading="lazy"><h3>Vert Royal</h3><a href="#contact">Réserver</a></article>
       </div>
-    </section>
-
-    <section class="section section-light testimonials">
-      <div class="section-title animate-on-scroll"><h2>Ils Nous Font Confiance</h2><p>Nos clients parlent de leur expérience</p><span class="ornament"></span></div>
-      <div class="testimonial-grid">
-        <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Youssef M." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>Le costume était impeccable, livré à temps à Casablanca. Les conseils pour la taille ont vraiment fait la différence le jour du mariage.</p><strong>Youssef M. <span>— Mariage 2024</span></strong></article>
-        <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/71.jpg" alt="Amine R." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>Service sérieux, costume propre et élégant pour une soirée professionnelle. Réservation simple et équipe très réactive sur WhatsApp.</p><strong>Amine R. <span>— Soirée Business</span></strong></article>
-        <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Karim B." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>J'avais besoin d'un smoking noir en urgence. LE COSTUME.MA a trouvé la bonne taille sans stress.</p><strong>Karim B. <span>— Cérémonie</span></strong></article>
-        <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Hamza L." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>Costume reçu la veille du mariage, impeccable et parfaitement repassé. Le service WhatsApp est réactif et l'équipe très professionnelle. Je recommande vivement Le Costume.ma !</p><strong>Hamza L. <span>— Mariage 2025</span></strong></article>
-        <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Saad M." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>Première expérience de location de costume et vraiment bluffant. Le smoking bleu marine était magnifique, tissu de qualité. Merci à toute l'équipe !</p><strong>Saad M. <span>— Soirée d'entreprise</span></strong></article>
-        <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Nadia K." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>J'ai loué un costume pour mon frère pour sa remise de diplôme. Le processus était simple, rapide et le résultat parfait. Le Bordeaux Prestige lui allait à merveille !</p><strong>Nadia K. <span>— Remise de Diplôme 2025</span></strong></article>
-      </div>
-    </section>
-
-    <section class="section section-dark process">
-      <div class="section-title animate-on-scroll"><h2>Comment Ça Marche ?</h2><span class="ornament"></span></div>
-      <div class="timeline animate-on-scroll">
-        <article class="step-item animate-on-scroll"><span>1</span><svg viewBox="0 0 24 24" fill="none"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><h3>Choisissez votre costume</h3><p>Parcourez notre catalogue en ligne</p></article>
-        <article class="step-item animate-on-scroll"><span>2</span><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg><h3>Réservez en ligne</h3><p>Sélectionnez vos dates et votre taille</p></article>
-        <article class="step-item animate-on-scroll"><span>3</span><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7"/><path d="m12 2 1.6 3.3 3.6.5-2.6 2.5.6 3.6-3.2-1.7-3.2 1.7.6-3.6-2.6-2.5 3.6-.5L12 2Z"/></svg><h3>Profitez de l'événement</h3><p>Retournez après usage sans stress</p></article>
-      </div>
-    </section>
-
-    <section class="section section-light advantages">
-      <div class="section-title animate-on-scroll"><h2>Pourquoi Nous Choisir ?</h2><span class="ornament"></span></div>
-      <div class="advantage-grid">
-        <article class="advantage-card animate-on-scroll"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h12l4 6-10 12L2 9l4-6Z"/><path d="M2 9h20M8 3l4 18 4-18"/></svg><h3>Costumes Premium</h3><p>Tissus haut de gamme, entretien professionnel inclus</p></article>
-        <article class="advantage-card animate-on-scroll"><svg viewBox="0 0 24 24" fill="none"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg><h3>Échange Facile</h3><p>Changement de taille garanti sans frais</p></article>
-        <article class="advantage-card animate-on-scroll"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20 20 4M14 4l6 6M4 6h8M4 10h5"/></svg><h3>Sur-Mesure</h3><p>Ajustements disponibles selon votre morphologie</p></article>
-        <article class="advantage-card animate-on-scroll"><svg viewBox="0 0 24 24" fill="none"><path d="M6.5 10.5c1.6 3.1 3.9 5.4 7 7l2-2c.3-.3.7-.4 1.1-.3 1 .3 2 .5 3.1.5.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.3c.6 0 1 .4 1 1 0 1.1.2 2.1.5 3.1.1.4 0 .8-.3 1.1l-2 2.3Z"/></svg><h3>Support 7J/7</h3><p>Notre équipe disponible pour vous conseiller</p></article>
-      </div>
-    </section>
-
-    <section class="section section-light instagram" id="collections">
-      <a class="instagram-link" href="https://instagram.com/lecostume.ma" target="_blank" rel="noopener" aria-label="Suivre LE COSTUME.MA sur Instagram">
-        <div class="section-title animate-on-scroll"><h2>Suivez-Nous Sur Instagram</h2><span class="ornament"></span></div>
-        <div class="instagram-grid">
-          <div class="insta-photo animate-on-scroll"><img src="assets/images/hero-costume.jpg" alt="Costume noir LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
-          <div class="insta-photo animate-on-scroll"><img src="assets/images/blanc.png" alt="Costume blanc LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
-          <div class="insta-photo animate-on-scroll"><img src="assets/images/bluemarine.png" alt="Costume bleu marine LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
-          <div class="insta-photo animate-on-scroll"><img src="assets/images/red.png" alt="Costume bordeaux LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
-          <div class="insta-photo animate-on-scroll"><img src="assets/images/green.png" alt="Costume vert LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
-          <div class="insta-tile animate-on-scroll"><strong>@lecostume.ma</strong><em>Nous Suivre</em></div>
-        </div>
-      </a>
     </section>
 
     <section class="section section-dark contact-map" id="apropos">
@@ -1176,6 +1325,51 @@
         </div>
       </div>
     </section>
+    <section class="section section-dark process">
+      <div class="section-title animate-on-scroll"><h2>Comment Ça Marche ?</h2><span class="ornament"></span></div>
+      <div class="timeline animate-on-scroll">
+        <article class="step-item animate-on-scroll"><span>1</span><svg viewBox="0 0 24 24" fill="none"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><h3>Choisissez votre costume</h3><p>Parcourez notre catalogue en ligne</p></article>
+        <article class="step-item animate-on-scroll"><span>2</span><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg><h3>Rendez-vous au magasin</h3><p>Passez sur place pour essayer votre costume</p></article>
+        <article class="step-item animate-on-scroll"><span>3</span><svg viewBox="0 0 24 24" fill="none"><path d="M4 20 20 4M14 4l6 6M4 6h8M4 10h5"/></svg><h3>Essayage & ajustement</h3><p>Validez la taille et les finitions en magasin</p></article>
+        <article class="step-item animate-on-scroll"><span>4</span><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7"/><path d="m12 2 1.6 3.3 3.6.5-2.6 2.5.6 3.6-3.2-1.7-3.2 1.7.6-3.6-2.6-2.5 3.6-.5L12 2Z"/></svg><h3>Profitez de l'événement</h3><p>Retournez après usage sans stress</p></article>
+      </div>
+    </section>
+
+    <section class="section section-light advantages">
+      <div class="section-title animate-on-scroll"><h2>Pourquoi Nous Choisir ?</h2><span class="ornament"></span></div>
+      <div class="advantage-grid">
+        <article class="advantage-card animate-on-scroll"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h12l4 6-10 12L2 9l4-6Z"/><path d="M2 9h20M8 3l4 18 4-18"/></svg><h3>Costumes Premium</h3><p>Tissus haut de gamme, entretien professionnel inclus</p></article>
+        <article class="advantage-card animate-on-scroll"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20 20 4M14 4l6 6M4 6h8M4 10h5"/></svg><h3>Sur-Mesure</h3><p>Ajustements disponibles selon votre morphologie</p></article>
+        <article class="advantage-card animate-on-scroll"><svg viewBox="0 0 24 24" fill="none"><path d="M6.5 10.5c1.6 3.1 3.9 5.4 7 7l2-2c.3-.3.7-.4 1.1-.3 1 .3 2 .5 3.1.5.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.3c.6 0 1 .4 1 1 0 1.1.2 2.1.5 3.1.1.4 0 .8-.3 1.1l-2 2.3Z"/></svg><h3>Support 7J/7</h3><p>Notre équipe disponible pour vous conseiller</p></article>
+      </div>
+    </section>
+
+    <section class="section section-light instagram" id="collections">
+      <a class="instagram-link" href="https://instagram.com/lecostume.ma" target="_blank" rel="noopener" aria-label="Suivre LE COSTUME.MA sur Instagram">
+        <div class="section-title animate-on-scroll"><h2>Suivez-Nous Sur Instagram</h2><span class="ornament"></span></div>
+        <div class="instagram-grid">
+          <div class="insta-photo animate-on-scroll"><img src="assets/images/hero-costume.jpg" alt="Costume noir LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
+          <div class="insta-photo animate-on-scroll"><img src="assets/images/blanc.png" alt="Costume blanc LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
+          <div class="insta-photo animate-on-scroll"><img src="assets/images/bluemarine.png" alt="Costume bleu marine LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
+          <div class="insta-photo animate-on-scroll"><img src="assets/images/red.png" alt="Costume bordeaux LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
+          <div class="insta-photo animate-on-scroll"><img src="assets/images/green.png" alt="Costume vert LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
+          <div class="insta-tile animate-on-scroll"><strong>@lecostume.ma</strong><em>Nous Suivre</em></div>
+        </div>
+      </a>
+    </section>
+
+    <section class="section section-light testimonials">
+      <div class="section-title animate-on-scroll"><h2>Ils Nous Font Confiance</h2><p>Nos clients parlent de leur expérience</p><span class="ornament"></span></div>
+      <div class="testimonial-grid">
+        <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Youssef M." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>Le costume était impeccable, livré à temps à Casablanca. Les conseils pour la taille ont vraiment fait la différence le jour du mariage.</p><strong>Youssef M. <span>— Mariage 2024</span></strong></article>
+        <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/71.jpg" alt="Amine R." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>Service sérieux, costume propre et élégant pour une soirée professionnelle. Réservation simple et équipe très réactive sur WhatsApp.</p><strong>Amine R. <span>— Soirée Business</span></strong></article>
+        <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Karim B." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>J'avais besoin d'un smoking noir en urgence. LE COSTUME.MA a trouvé la bonne taille sans stress.</p><strong>Karim B. <span>— Cérémonie</span></strong></article>
+        <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Hamza L." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>Costume reçu la veille du mariage, impeccable et parfaitement repassé. Le service WhatsApp est réactif et l'équipe très professionnelle. Je recommande vivement Le Costume.ma !</p><strong>Hamza L. <span>— Mariage 2025</span></strong></article>
+        <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Saad M." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>Première expérience de location de costume et vraiment bluffant. Le smoking bleu marine était magnifique, tissu de qualité. Merci à toute l'équipe !</p><strong>Saad M. <span>— Soirée d'entreprise</span></strong></article>
+        <article class="testimonial-card animate-on-scroll"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Nadia K." loading="lazy" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); outline: 2px solid rgba(201,168,76,0.25); outline-offset: 3px;"><div class="stars"><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg><svg viewBox="0 0 20 20"><path d="m10 1 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L1 7.6l6.2-.9L10 1Z"/></svg></div><p>J'ai loué un costume pour mon frère pour sa remise de diplôme. Le processus était simple, rapide et le résultat parfait. Le Bordeaux Prestige lui allait à merveille !</p><strong>Nadia K. <span>— Remise de Diplôme 2025</span></strong></article>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
