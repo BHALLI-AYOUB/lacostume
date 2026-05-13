@@ -6,7 +6,7 @@
   <title>Nos Produits | LE COSTUME.MA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --gold: #C9A84C;
@@ -141,61 +141,120 @@
     }
     .product-grid {
       display: grid;
-      gap: 18px;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 22px;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      perspective: 800px;
     }
     .product-card {
-      background: var(--black-card);
-      border: 1px solid rgba(201, 168, 76, .14);
+      background: #111111;
+      border: 1px solid rgba(212, 175, 55, .18);
+      border-radius: 16px;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, .42);
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
-      padding: 12px;
+      padding: 0;
+      position: relative;
       text-align: center;
-      transition: var(--transition);
+      transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateZ(0) scale(1);
+      transform-style: preserve-3d;
+      transition: transform .4s ease, box-shadow .4s ease, border-color .4s ease;
+      will-change: transform;
     }
+    .product-card::before {
+      background: linear-gradient(135deg, rgba(212, 175, 55, .4), transparent, rgba(212, 175, 55, .15));
+      border-radius: inherit;
+      content: "";
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      transition: opacity .35s ease;
+      z-index: 4;
+    }
+    .product-card:hover::before { opacity: 1; }
     .product-card:hover {
-      border-color: rgba(201, 168, 76, .55);
-      box-shadow: 0 22px 64px rgba(0,0,0,.55);
-      transform: translateY(-5px);
+      border-color: rgba(212, 175, 55, .38);
+      z-index: 3;
     }
+    .product-image,
     .product-card figure {
-      aspect-ratio: 2 / 3;
-      background: #050505;
-      margin-bottom: 14px;
+      background:
+        radial-gradient(circle at 50% 18%, rgba(212, 175, 55, .18), transparent 34%),
+        linear-gradient(180deg, #16110b 0%, #0d0d0d 52%, #050505 100%);
+      border-radius: 16px 16px 0 0;
+      height: 250px;
+      margin: 0;
       overflow: hidden;
+      position: relative;
+      z-index: 1;
     }
+    .product-image::after,
+    .product-card figure::after {
+      background: linear-gradient(180deg, transparent 52%, rgba(0,0,0,.72) 100%);
+      content: "";
+      inset: 0;
+      pointer-events: none;
+      position: absolute;
+      z-index: 2;
+    }
+    .product-shine {
+      background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,.12), transparent 60%);
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      transition: opacity .35s ease;
+      z-index: 3;
+    }
+    .product-card:hover .product-shine { opacity: 1; }
     .product-card img {
+      filter: brightness(.9) contrast(1.08) saturate(.94);
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       object-position: top center;
-      transition: transform .6s ease;
+      padding: 8px;
+      position: relative;
+      transform: translateX(var(--img-x, 0px)) translateY(var(--img-y, 0px)) translateZ(24px) scale(1.02);
+      transition: transform .4s ease, filter .4s ease;
       width: 100%;
+      z-index: 1;
     }
-    .product-card:hover img { transform: scale(1.055); }
+    .product-card:hover img { filter: brightness(1.04) contrast(1.12) saturate(1); }
     .product-card h3 {
       color: var(--white);
-      font-size: .92rem;
+      font-size: 15px;
       font-style: italic;
       letter-spacing: .08em;
+      line-height: 1.25;
+      margin-top: auto;
       min-height: 2.4em;
+      padding: 20px 16px 0;
       text-transform: uppercase;
+      transform: translateZ(26px);
     }
     .product-card a {
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      display: block;
-      font-family: var(--font-sans);
-      font-size: .65rem;
-      letter-spacing: .14em;
-      margin-top: 12px;
-      min-height: 44px;
-      padding: 10px 8px;
-      place-content: center;
+      border: 1px solid rgba(212, 175, 55, .78);
+      border-radius: 999px;
+      color: #d4af37;
+      display: grid;
+      font-family: 'Montserrat', var(--font-sans);
+      font-size: .64rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      margin: 18px 16px 18px;
+      min-height: 42px;
+      padding: 10px 12px;
+      place-items: center;
       text-transform: uppercase;
+      transform: translateZ(32px);
     }
     .product-card a:hover {
-      background: var(--gold);
+      background: #d4af37;
+      box-shadow: 0 8px 22px rgba(212, 175, 55, .24);
       color: var(--black);
     }
+    .product-badge { background: linear-gradient(135deg, #d4af37, #f0d889); border-radius: 999px; color: #0a0a0a; font-family: 'Montserrat', var(--font-sans); font-size: .56rem; font-weight: 700; letter-spacing: .12em; padding: 6px 9px; position: absolute; right: 12px; text-transform: uppercase; top: 12px; transform: translateZ(42px); z-index: 5; }
     .footer {
       background: #111;
       border-top: 1px solid rgba(201, 168, 76, .22);
@@ -240,8 +299,8 @@
       .catalogue-head { gap: 8px; margin-bottom: 18px; padding-bottom: 14px; }
       .catalogue-head span { font-size: .68rem; }
       .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-      .product-card { padding: 9px; }
-      .product-card figure { margin-bottom: 10px; }
+      .product-card { padding: 0; }
+      .product-card figure { margin-bottom: 0; }
       .product-card h3 { font-size: .78rem; }
       .product-card a { font-size: .6rem; letter-spacing: .1em; padding: 8px 6px; }
       .footer { flex-direction: column; }
@@ -252,7 +311,7 @@
       .eyebrow { font-size: .64rem; letter-spacing: .22em; }
       h1 { font-size: clamp(2.1rem, 13vw, 3.25rem); }
       .product-grid { gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .product-card { padding: 8px; width: 100%; }
+      .product-card { padding: 0; width: 100%; }
       .product-card h3 { font-size: .7rem; letter-spacing: .055em; min-height: 2.9em; }
       .product-card a { font-size: .56rem; }
       .footer { font-size: .92rem; padding-bottom: 86px; }
@@ -268,6 +327,20 @@
       }
       .product-card:hover img {
         transform: none;
+      }
+    }
+    @media (max-width: 768px) {
+      .product-grid { perspective: none; }
+      .product-card {
+        transform: none !important;
+        transform-style: flat;
+        will-change: auto;
+      }
+      .product-card img,
+      .product-card h3,
+      .product-card a,
+      .product-badge {
+        transform: none !important;
       }
     }
   </style>
@@ -330,6 +403,25 @@
     const whatsappNumber = "212606744844";
     const buildWhatsappLink = (message) => `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     const defaultReservationMessage = "Bonjour LE COSTUME.MA, je souhaite réserver un costume. Pouvez-vous me confirmer les disponibilités et les tailles ?";
+    const suitData = [
+      { name: "Smoking Noir Classic", imageUrl: "assets/images/hero-costume.jpg", badge: "Bestseller" },
+      { name: "Blanc Élégance", imageUrl: "assets/images/blanc.png", badge: "" },
+      { name: "Bleu Marine", imageUrl: "assets/images/bluemarine.png", badge: "" },
+      { name: "Bordeaux Prestige", imageUrl: "assets/images/red.png", badge: "" },
+      { name: "Vert Émeraude", imageUrl: "assets/images/green.png", badge: "" },
+      { name: "Gris Clair", imageUrl: "assets/images/gris.png", badge: "" },
+      { name: "Bleu Royal", imageUrl: "assets/images/bluestrong.png", badge: "Nouveau" },
+      { name: "Bleu Élégance", imageUrl: "assets/images/bluee.png", badge: "" },
+      { name: "Royal Prestige", imageUrl: "assets/images/royal.png", badge: "Nouveau" },
+      { name: "Smoking Papillon Noir", imageUrl: "assets/images/blackpapion.png", badge: "" },
+      { name: "Beige Élégance", imageUrl: "assets/images/bage.png", badge: "" },
+      { name: "Vert Royal", imageUrl: "assets/images/greenroyal.png", badge: "Nouveau" },
+      { name: "Smoking Noir Ouvert", imageUrl: "assets/images/blackouvert.png", badge: "" },
+      { name: "Blanc Royal", imageUrl: "assets/images/blancroyal.png", badge: "" },
+      { name: "Bleu Cravate Rouge", imageUrl: "assets/images/bluewithredcravate.png", badge: "" },
+      { name: "Bleu Cravate Blanche", imageUrl: "assets/images/bluewitthblancravate.png", badge: "" }
+    ];
+    const suitByName = new Map(suitData.map((suit) => [suit.name.toLowerCase(), suit]));
     const setWhatsappReservation = (link, message) => {
       if (!link) return;
       link.href = buildWhatsappLink(message);
@@ -341,15 +433,77 @@
       setWhatsappReservation(link, defaultReservationMessage);
     });
 
-    document.querySelectorAll(".product-card").forEach((card) => {
-      const productName = card.querySelector("h3")?.textContent?.trim();
-      const reserveLink = card.querySelector("a");
-      if (!productName || !reserveLink) return;
-      setWhatsappReservation(
-        reserveLink,
-        `Bonjour LE COSTUME.MA, je souhaite réserver le costume "${productName}". Pouvez-vous me confirmer la disponibilité et les tailles ?`
-      );
-    });
+    const enhanceProductCards = () => {
+      document.querySelectorAll(".product-card").forEach((card) => {
+        const image = card.querySelector("img");
+        if (!image) return;
+
+        let imageLayer = image.closest("figure, .product-image");
+        if (!imageLayer) {
+          imageLayer = document.createElement("div");
+          imageLayer.className = "product-image";
+          image.parentNode.insertBefore(imageLayer, image);
+          imageLayer.appendChild(image);
+        } else {
+          imageLayer.classList.add("product-image");
+        }
+
+        if (!imageLayer.querySelector(".product-shine")) {
+          imageLayer.appendChild(document.createElement("div")).className = "product-shine";
+        }
+
+        const productName = card.querySelector("h3")?.textContent?.trim();
+        const product = productName ? suitByName.get(productName.toLowerCase()) : null;
+        const reserveLink = card.querySelector("a");
+
+        if (product?.badge && !card.querySelector(".product-badge")) {
+          const badge = document.createElement("span");
+          badge.className = "product-badge";
+          badge.textContent = product.badge;
+          card.appendChild(badge);
+        }
+
+        if (!productName || !reserveLink) return;
+        setWhatsappReservation(
+          reserveLink,
+          `Bonjour LE COSTUME.MA, je souhaite réserver le costume "${productName}". Pouvez-vous me confirmer la disponibilité et les tailles ?`
+        );
+      });
+    };
+
+    enhanceProductCards();
+
+    const canUseProductTilt = window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 769px)").matches;
+    if (canUseProductTilt) {
+      document.querySelectorAll(".product-card").forEach((card) => {
+        let rafId = 0;
+        card.addEventListener("pointermove", (event) => {
+          cancelAnimationFrame(rafId);
+          rafId = requestAnimationFrame(() => {
+            const rect = card.getBoundingClientRect();
+            const dx = ((event.clientX - rect.left) / rect.width - .5) * 2;
+            const dy = ((event.clientY - rect.top) / rect.height - .5) * 2;
+            const mx = ((event.clientX - rect.left) / rect.width) * 100;
+            const my = ((event.clientY - rect.top) / rect.height) * 100;
+            card.style.transition = "box-shadow .12s ease";
+            card.style.transform = `rotateX(${-dy * 14}deg) rotateY(${dx * 14}deg) translateZ(18px) scale(1.03)`;
+            card.style.boxShadow = `${-dx * 20}px ${-dy * 20 + 30}px 60px rgba(0,0,0,0.7)`;
+            card.style.setProperty("--mx", `${mx}%`);
+            card.style.setProperty("--my", `${my}%`);
+            card.style.setProperty("--img-x", `${-dx * 6}px`);
+            card.style.setProperty("--img-y", `${-dy * 6}px`);
+          });
+        });
+        card.addEventListener("pointerleave", () => {
+          cancelAnimationFrame(rafId);
+          card.style.transition = "transform .4s ease, box-shadow .4s ease, border-color .4s ease";
+          card.style.transform = "";
+          card.style.boxShadow = "";
+          card.style.setProperty("--img-x", "0px");
+          card.style.setProperty("--img-y", "0px");
+        });
+      });
+    }
   </script>
 </body>
 </html>
