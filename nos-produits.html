@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -161,6 +161,7 @@
       transition: transform .4s ease, box-shadow .4s ease, border-color .4s ease;
       will-change: transform;
     }
+    .product-card.is-hidden { display: none !important; }
     .product-card::before {
       background: linear-gradient(135deg, rgba(212, 175, 55, .4), transparent, rgba(212, 175, 55, .15));
       border-radius: inherit;
@@ -254,7 +255,6 @@
       box-shadow: 0 8px 22px rgba(212, 175, 55, .24);
       color: var(--black);
     }
-    .product-badge { background: linear-gradient(135deg, #d4af37, #f0d889); border-radius: 999px; color: #0a0a0a; font-family: 'Montserrat', var(--font-sans); font-size: .56rem; font-weight: 700; letter-spacing: .12em; padding: 6px 9px; position: absolute; right: 12px; text-transform: uppercase; top: 12px; transform: translateZ(42px); z-index: 5; }
     .footer {
       background: #111;
       border-top: 1px solid rgba(201, 168, 76, .22);
@@ -338,8 +338,7 @@
       }
       .product-card img,
       .product-card h3,
-      .product-card a,
-      .product-badge {
+      .product-card a {
         transform: none !important;
       }
     }
@@ -367,59 +366,65 @@
     <section class="catalogue">
       <div class="catalogue-head">
         <h2>Tous les costumes</h2>
-        <span>16 modèles</span>
+        <span id="catalogue-count">19 modèles</span>
       </div>
       <div class="product-grid">
-        <article class="product-card"><figure><img src="assets/images/hero-costume.jpg" alt="Smoking Noir Classic" loading="lazy"></figure><h3>Smoking Noir Classic</h3><a href="index.html#contact">Réserver</a></article>
-        <article class="product-card"><figure><img src="assets/images/blanc.png" alt="Blanc Élégance" loading="lazy"></figure><h3>Blanc Élégance</h3><a href="index.html#contact">Réserver</a></article>
-        <article class="product-card"><figure><img src="assets/images/bluemarine.png" alt="Bleu Marine" loading="lazy"></figure><h3>Bleu Marine</h3><a href="index.html#contact">Réserver</a></article>
-        <article class="product-card"><figure><img src="assets/images/red.png" alt="Bordeaux Prestige" loading="lazy"></figure><h3>Bordeaux Prestige</h3><a href="index.html#contact">Réserver</a></article>
-        <article class="product-card"><figure><img src="assets/images/green.png" alt="Vert Émeraude" loading="lazy"></figure><h3>Vert Émeraude</h3><a href="index.html#contact">Réserver</a></article>
-        <article class="product-card"><figure><img src="assets/images/gris.png" alt="Gris Clair" loading="lazy"></figure><h3>Gris Clair</h3><a href="index.html#contact">Réserver</a></article>
-        <article class="product-card"><figure><img src="assets/images/bluestrong.png" alt="Bleu Royal" loading="lazy"></figure><h3>Bleu Royal</h3><a href="index.html#contact">Réserver</a></article>
-        <article class="product-card"><figure><img src="assets/images/bluee.png" alt="Bleu Élégance" loading="lazy"></figure><h3>Bleu Élégance</h3><a href="index.html#contact">Réserver</a></article>
-        <article class="product-card"><figure><img src="assets/images/royal.png" alt="Royal Prestige" loading="lazy"></figure><h3>Royal Prestige</h3><a href="index.html#contact">Réserver</a></article>
-        <article class="product-card"><figure><img src="assets/images/blackpapion.png" alt="Smoking Papillon Noir" loading="lazy"></figure><h3>Smoking Papillon Noir</h3><a href="index.html#contact">Réserver</a></article>
-        <article class="product-card"><figure><img src="assets/images/bage.png" alt="Beige Élégance" loading="lazy"></figure><h3>Beige Élégance</h3><a href="index.html#contact">Réserver</a></article>
-        <article class="product-card"><figure><img src="assets/images/greenroyal.png" alt="Vert Royal" loading="lazy"></figure><h3>Vert Royal</h3><a href="index.html#contact">Réserver</a></article>
-        <article class="product-card"><figure><img src="assets/images/blackouvert.png" alt="Smoking Noir Ouvert" loading="lazy"></figure><h3>Smoking Noir Ouvert</h3><a href="index.html#contact">Réserver</a></article>
-        <article class="product-card"><figure><img src="assets/images/blancroyal.png" alt="Blanc Royal" loading="lazy"></figure><h3>Blanc Royal</h3><a href="index.html#contact">Réserver</a></article>
-        <article class="product-card"><figure><img src="assets/images/bluewithredcravate.png" alt="Bleu Cravate Rouge" loading="lazy"></figure><h3>Bleu Cravate Rouge</h3><a href="index.html#contact">Réserver</a></article>
-        <article class="product-card"><figure><img src="assets/images/bluewitthblancravate.png" alt="Bleu Cravate Blanche" loading="lazy"></figure><h3>Bleu Cravate Blanche</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="smokings"><figure><img src="assets/images/products/smoking-noir.jpg" alt="Smoking Noir" loading="lazy"></figure><h3>Smoking Noir</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="smokings"><figure><img src="assets/images/products/smoking-noir-3-pieces-col-chale.jpg" alt="Smoking Noir 3 Pièces Col Châle" loading="lazy"></figure><h3>Smoking Noir 3 Pièces Col Châle</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="smokings"><figure><img src="assets/images/products/smoking-noir-ceinture-col-chale.jpg" alt="Smoking Noir Ceinture Col Châle" loading="lazy"></figure><h3>Smoking Noir Ceinture Col Châle</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="smokings"><figure><img src="assets/images/products/smoking-blanc-col-chale.jpg" alt="Smoking Blanc Col Châle" loading="lazy"></figure><h3>Smoking Blanc Col Châle</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="smokings"><figure><img src="assets/images/products/smoking-bleu-col-chale.jpg" alt="Smoking Bleu Col Châle" loading="lazy"></figure><h3>Smoking Bleu Col Châle</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="smokings"><figure><img src="assets/images/products/smoking-bleu.jpg" alt="Smoking Bleu" loading="lazy"></figure><h3>Smoking Bleu</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="croisees"><figure><img src="assets/images/products/croise-noir.jpg" alt="Croisé Noir" loading="lazy"></figure><h3>Croisé Noir</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="croisees"><figure><img src="assets/images/products/croise-bleu.jpg" alt="Croisé Bleu" loading="lazy"></figure><h3>Croisé Bleu</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="croisees"><figure><img src="assets/images/products/croise-vert-raye.jpg" alt="Croisé Vert Rayé" loading="lazy"></figure><h3>Croisé Vert Rayé</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="mariage"><figure><img src="assets/images/products/bordeau-3-pieces.jpg" alt="Bordeau 3 Pièces" loading="lazy"></figure><h3>Bordeau 3 Pièces</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="mariage"><figure><img src="assets/images/products/gris-raye.jpg" alt="Gris Rayé" loading="lazy"></figure><h3>Gris Rayé</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="classiques"><figure><img src="assets/images/products/vert-simple.jpg" alt="Vert Simple" loading="lazy"></figure><h3>Vert Simple</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="mariage"><figure><img src="assets/images/products/costume-bleu-beige-3-pieces.jpg" alt="Costume Bleu Beige 3 Pièces" loading="lazy"></figure><h3>Costume Bleu Beige 3 Pièces</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="smokings"><figure><img src="assets/images/products/noir-soiree.jpg" alt="Noir Soirée" loading="lazy"></figure><h3>Noir Soirée</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="classiques"><figure><img src="assets/images/products/officie-bleu.jpg" alt="Officie Bleu" loading="lazy"></figure><h3>Officie Bleu</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="mariage"><figure><img src="assets/images/products/officier-beige.jpg" alt="Officier Beige" loading="lazy"></figure><h3>Officier Beige</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="classiques"><figure><img src="assets/images/products/officier-bleu.jpg" alt="Officier Bleu" loading="lazy"></figure><h3>Officier Bleu</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="classiques"><figure><img src="assets/images/products/simple-bleu.jpg" alt="Simple Bleu" loading="lazy"></figure><h3>Simple Bleu</h3><a href="index.html#contact">Réserver</a></article>
+        <article class="product-card" data-category="classiques"><figure><img src="assets/images/products/simple-bleu-2.jpg" alt="Simple Bleu 2" loading="lazy"></figure><h3>Simple Bleu 2</h3><a href="index.html#contact">Réserver</a></article>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <p><strong>LE COSTUME.MA</strong> — Location de costumes pour homme à Casablanca.</p>
-    <p>060 67 44 844 · contact@lecostume.ma</p>
+    <p>+212 663-582327 · contact@lecostume.ma</p>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/212606744844" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <a class="whatsapp-float" href="https://wa.me/212663582327" target="_blank" rel="noopener" aria-label="WhatsApp">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#ffffff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
   <script>
-    const whatsappNumber = "212606744844";
+    const whatsappNumber = "212663582327";
     const buildWhatsappLink = (message) => `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     const defaultReservationMessage = "Bonjour LE COSTUME.MA, je souhaite réserver un costume. Pouvez-vous me confirmer les disponibilités et les tailles ?";
     const suitData = [
-      { name: "Smoking Noir Classic", imageUrl: "assets/images/hero-costume.jpg", badge: "Bestseller" },
-      { name: "Blanc Élégance", imageUrl: "assets/images/blanc.png", badge: "" },
-      { name: "Bleu Marine", imageUrl: "assets/images/bluemarine.png", badge: "" },
-      { name: "Bordeaux Prestige", imageUrl: "assets/images/red.png", badge: "" },
-      { name: "Vert Émeraude", imageUrl: "assets/images/green.png", badge: "" },
-      { name: "Gris Clair", imageUrl: "assets/images/gris.png", badge: "" },
-      { name: "Bleu Royal", imageUrl: "assets/images/bluestrong.png", badge: "Nouveau" },
-      { name: "Bleu Élégance", imageUrl: "assets/images/bluee.png", badge: "" },
-      { name: "Royal Prestige", imageUrl: "assets/images/royal.png", badge: "Nouveau" },
-      { name: "Smoking Papillon Noir", imageUrl: "assets/images/blackpapion.png", badge: "" },
-      { name: "Beige Élégance", imageUrl: "assets/images/bage.png", badge: "" },
-      { name: "Vert Royal", imageUrl: "assets/images/greenroyal.png", badge: "Nouveau" },
-      { name: "Smoking Noir Ouvert", imageUrl: "assets/images/blackouvert.png", badge: "" },
-      { name: "Blanc Royal", imageUrl: "assets/images/blancroyal.png", badge: "" },
-      { name: "Bleu Cravate Rouge", imageUrl: "assets/images/bluewithredcravate.png", badge: "" },
-      { name: "Bleu Cravate Blanche", imageUrl: "assets/images/bluewitthblancravate.png", badge: "" }
+      { name: "Smoking Noir", imageUrl: "assets/images/products/smoking-noir.jpg" },
+      { name: "Smoking Noir 3 Pièces Col Châle", imageUrl: "assets/images/products/smoking-noir-3-pieces-col-chale.jpg" },
+      { name: "Smoking Noir Ceinture Col Châle", imageUrl: "assets/images/products/smoking-noir-ceinture-col-chale.jpg" },
+      { name: "Smoking Blanc Col Châle", imageUrl: "assets/images/products/smoking-blanc-col-chale.jpg" },
+      { name: "Smoking Bleu Col Châle", imageUrl: "assets/images/products/smoking-bleu-col-chale.jpg" },
+      { name: "Smoking Bleu", imageUrl: "assets/images/products/smoking-bleu.jpg" },
+      { name: "Croisé Noir", imageUrl: "assets/images/products/croise-noir.jpg" },
+      { name: "Croisé Bleu", imageUrl: "assets/images/products/croise-bleu.jpg" },
+      { name: "Croisé Vert Rayé", imageUrl: "assets/images/products/croise-vert-raye.jpg" },
+      { name: "Bordeau 3 Pièces", imageUrl: "assets/images/products/bordeau-3-pieces.jpg" },
+      { name: "Gris Rayé", imageUrl: "assets/images/products/gris-raye.jpg" },
+      { name: "Vert Simple", imageUrl: "assets/images/products/vert-simple.jpg" },
+      { name: "Costume Bleu Beige 3 Pièces", imageUrl: "assets/images/products/costume-bleu-beige-3-pieces.jpg" },
+      { name: "Noir Soirée", imageUrl: "assets/images/products/noir-soiree.jpg" },
+      { name: "Officie Bleu", imageUrl: "assets/images/products/officie-bleu.jpg" },
+      { name: "Officier Beige", imageUrl: "assets/images/products/officier-beige.jpg" },
+      { name: "Officier Bleu", imageUrl: "assets/images/products/officier-bleu.jpg" },
+      { name: "Simple Bleu", imageUrl: "assets/images/products/simple-bleu.jpg" },
+      { name: "Simple Bleu 2", imageUrl: "assets/images/products/simple-bleu-2.jpg" }
     ];
     const suitByName = new Map(suitData.map((suit) => [suit.name.toLowerCase(), suit]));
     const setWhatsappReservation = (link, message) => {
@@ -453,15 +458,7 @@
         }
 
         const productName = card.querySelector("h3")?.textContent?.trim();
-        const product = productName ? suitByName.get(productName.toLowerCase()) : null;
         const reserveLink = card.querySelector("a");
-
-        if (product?.badge && !card.querySelector(".product-badge")) {
-          const badge = document.createElement("span");
-          badge.className = "product-badge";
-          badge.textContent = product.badge;
-          card.appendChild(badge);
-        }
 
         if (!productName || !reserveLink) return;
         setWhatsappReservation(
@@ -472,6 +469,27 @@
     };
 
     enhanceProductCards();
+
+    const categoryLabels = {
+      smokings: "Smokings",
+      croisees: "Croisées",
+      classiques: "Classiques",
+      mariage: "Mariage"
+    };
+    const selectedCategory = new URLSearchParams(window.location.search).get("categorie");
+    if (selectedCategory && categoryLabels[selectedCategory]) {
+      const cards = document.querySelectorAll(".product-card");
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const isVisible = card.dataset.category === selectedCategory;
+        card.classList.toggle("is-hidden", !isVisible);
+        card.style.display = isVisible ? "" : "none";
+        if (isVisible) visibleCount += 1;
+      });
+      document.querySelector(".hero h1").textContent = categoryLabels[selectedCategory];
+      document.querySelector(".catalogue-head h2").textContent = `Collection ${categoryLabels[selectedCategory]}`;
+      document.querySelector("#catalogue-count").textContent = `${visibleCount} modèles`;
+    }
 
     const canUseProductTilt = window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 769px)").matches;
     if (canUseProductTilt) {

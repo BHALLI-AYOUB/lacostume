@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -600,6 +600,9 @@
     .footer-grid h3 { color: #fff; font-family: var(--font-sans); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; }
     .footer-grid a, .footer-grid span, .footer-grid p { color: rgba(245, 240, 232, .62); }
     .footer-grid a:hover { color: var(--gold); transform: translateX(4px); }
+    .footer-logo-link { display: block; width: max-content; }
+    .footer-logo-link:hover { transform: none !important; }
+    .footer-logo { background: #fff; display: block; height: auto; max-width: 100%; width: 230px; }
     .social-links { display: flex; gap: 9px; margin-top: 8px; }
     .social-links a { align-items: center; border: 1px solid rgba(201, 168, 76, .3); border-radius: 50%; display: grid; height: 38px; place-items: center; width: 38px; }
     .social-links svg { fill: var(--gold-light); height: 18px; width: 18px; }
@@ -870,6 +873,7 @@
 
     @media (max-width: 768px) {
       .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .product-grid .product-card:nth-child(n+7) { display: none; }
     }
 
     @media (max-width: 640px) {
@@ -1399,9 +1403,9 @@
       <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="nav-panel">
         <ul class="nav-links">
-          <li><a class="active" href="#accueil">Accueil</a></li><li><a href="#costumes">Nos Costumes</a></li><li><a href="#modeles">Modèles</a></li><li><a href="#collections">Collections</a></li><li><a href="#apropos">À Propos</a></li><li><a href="#contact">Contact</a></li>
+          <li><a class="active" href="#accueil">Accueil</a></li><li><a href="#costumes">Nos Costumes</a></li><li><a href="#modeles">Modèles</a></li><li><a href="#costumes">Collections</a></li><li><a href="#apropos">À Propos</a></li><li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="nav-actions"><a class="nav-phone" href="tel:+212606744844">☎ 060 67 44 844</a><button class="cart-button" type="button" aria-label="Panier">🛒<span>0</span></button><a class="button button-gold nav-cta" href="#contact">Réserver Maintenant</a></div>
+        <div class="nav-actions"><a class="nav-phone" href="tel:+212663582327">☎ +212 663-582327</a><button class="cart-button" type="button" aria-label="Panier">🛒<span>0</span></button><a class="button button-gold nav-cta" href="#contact">Réserver Maintenant</a></div>
       </div>
     </nav>
   </header>
@@ -1416,17 +1420,17 @@
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#costumes">Nos Costumes</a></li>
       <li><a href="#modeles">Modèles</a></li>
-      <li><a href="#collections">Collections</a></li>
+      <li><a href="#costumes">Collections</a></li>
       <li><a href="#apropos">À Propos</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="mobile-menu-bottom">
-      <a class="mobile-menu-phone" href="tel:+212606744844">060 67 44 844</a>
+      <a class="mobile-menu-phone" href="tel:+212663582327">+212 663-582327</a>
       <div class="mobile-menu-socials">
         <a href="#" aria-label="Facebook">F</a>
         <a href="https://instagram.com/lecostume.ma" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
         <a href="#" aria-label="TikTok">TK</a>
-        <a href="https://wa.me/212606744844" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
+        <a href="https://wa.me/212663582327" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
       </div>
     </div>
   </div>
@@ -1434,7 +1438,7 @@
   <main>
     <section class="hero" id="accueil">
       <div class="hero-video hero-slideshow" aria-hidden="true">
-        <img class="hero-slide active" src="assets/images/hero-costume.jpg" alt="" loading="lazy"><img class="hero-slide" src="assets/images/category-costumes.jpg" alt="" loading="lazy"><img class="hero-slide" src="assets/images/blanc.png" alt="" loading="lazy"><img class="hero-slide" src="assets/images/bluemarine.png" alt="" loading="lazy"><img class="hero-slide" src="assets/images/red.png" alt="" loading="lazy"><img class="hero-slide" src="assets/images/green.png" alt="" loading="lazy"><img class="hero-slide" src="assets/images/bluee.png" alt="" loading="lazy"><img class="hero-slide" src="assets/images/bluestrong.png" alt="" loading="lazy">
+        <img class="hero-slide active" src="assets/images/products/smoking-noir.jpg" alt="" loading="lazy"><img class="hero-slide" src="assets/images/products/smoking-noir-3-pieces-col-chale.jpg" alt="" loading="lazy"><img class="hero-slide" src="assets/images/products/smoking-bleu-col-chale.jpg" alt="" loading="lazy"><img class="hero-slide" src="assets/images/products/bordeau-3-pieces.jpg" alt="" loading="lazy"><img class="hero-slide" src="assets/images/products/croise-bleu.jpg" alt="" loading="lazy"><img class="hero-slide" src="assets/images/products/croise-vert-raye.jpg" alt="" loading="lazy"><img class="hero-slide" src="assets/images/products/gris-raye.jpg" alt="" loading="lazy"><img class="hero-slide" src="assets/images/products/vert-simple.jpg" alt="" loading="lazy">
       </div>
       <div class="hero-overlay"></div>
       <div class="hero-copy reveal">
@@ -1442,7 +1446,7 @@
         <h1><span class="hero-title-white">Location de Costumes</span><span class="hero-title-gold">Élégants à Casablanca</span></h1>
         <p>Location de costumes pour homme à Casablanca pour tous vos événements : mariage, soirée, business et plus encore.</p>
         <div class="hero-buttons"><a class="button button-gold" href="#contact">📅 Réserver Maintenant</a><a class="button button-outline" href="#modeles">Découvrir les Costumes</a></div>
-        <div class="hero-pills"><span>📍 Casablanca, Oulfa Maroc</span><span>📞 060 67 44 844, Réponse rapide</span></div>
+        <div class="hero-pills"><span>📍 Casablanca, Oulfa Maroc</span><span>📞 +212 663-582327, Réponse rapide</span></div>
       </div>
       <div class="hero-media hero-main-image-wrapper reveal"><img class="hero-main-image" src="assets/images/hero-smoking-luxe.png" alt="Costume smoking noir luxe sur mannequin dans une boutique" loading="lazy"></div>
       <div class="hero-badge"><strong>500+</strong> Modèles disponibles</div>
@@ -1451,28 +1455,28 @@
     <section class="section section-light" id="costumes">
       <div class="section-title animate-on-scroll"><h2>Nos Catégories</h2><span class="ornament"></span></div>
       <div class="category-grid">
-        <a class="category-card animate-on-scroll" href="#modeles"><img src="assets/images/category-smoking.jpg" alt="Smokings" loading="lazy"><span><strong>Smokings</strong><em>Voir la collection →</em></span></a>
-        <a class="category-card animate-on-scroll" href="#modeles"><img src="assets/images/category-croisees.jpg" alt="Croisées" loading="lazy"><span><strong>Croisées</strong><em>Voir la collection →</em></span></a>
-        <a class="category-card animate-on-scroll" href="#modeles"><img src="assets/images/category-classiques.jpg" alt="Classiques" loading="lazy"><span><strong>Classiques</strong><em>Voir la collection →</em></span></a>
-        <a class="category-card animate-on-scroll" href="#modeles"><img src="assets/images/mariage.jpeg" alt="Mariage" loading="lazy"><span><strong>Mariage</strong><em>Voir la collection →</em></span></a>
+        <a class="category-card animate-on-scroll" href="nos-produits.html?categorie=smokings"><img src="assets/images/category-smoking.jpg" alt="Smokings" loading="lazy"><span><strong>Smokings</strong><em>Voir la collection →</em></span></a>
+        <a class="category-card animate-on-scroll" href="nos-produits.html?categorie=croisees"><img src="assets/images/category-croisees.jpg" alt="Croisées" loading="lazy"><span><strong>Croisées</strong><em>Voir la collection →</em></span></a>
+        <a class="category-card animate-on-scroll" href="nos-produits.html?categorie=classiques"><img src="assets/images/category-classiques.jpg" alt="Classiques" loading="lazy"><span><strong>Classiques</strong><em>Voir la collection →</em></span></a>
+        <a class="category-card animate-on-scroll" href="nos-produits.html?categorie=mariage"><img src="assets/images/mariage.jpeg" alt="Mariage" loading="lazy"><span><strong>Mariage</strong><em>Voir la collection →</em></span></a>
       </div>
     </section>
 
     <section class="section section-dark" id="modeles">
-      <div class="section-title animate-on-scroll"><h2>Nos Coups de Cœur</h2><span class="ornament"></span></div>
+      <div class="section-title animate-on-scroll"><h2>Nos Coups de CÅ“ur</h2><span class="ornament"></span></div>
       <div class="product-grid">
-        <article class="product-card animate-on-scroll"><img src="assets/images/hero-costume.jpg" alt="Smoking Noir Classic" loading="lazy"><h3>Smoking Noir Classic</h3><a href="#contact">Réserver</a></article>
-        <article class="product-card animate-on-scroll"><img src="assets/images/blanc.png" alt="Blanc Élégance" loading="lazy"><h3>Blanc Élégance</h3><a href="#contact">Réserver</a></article>
-        <article class="product-card animate-on-scroll"><img src="assets/images/bluemarine.png" alt="Bleu Marine" loading="lazy"><h3>Bleu Marine</h3><a href="#contact">Réserver</a></article>
-        <article class="product-card animate-on-scroll"><img src="assets/images/red.png" alt="Bordeaux Prestige" loading="lazy"><h3>Bordeaux Prestige</h3><a href="#contact">Réserver</a></article>
-        <article class="product-card animate-on-scroll"><img src="assets/images/green.png" alt="Vert Émeraude" loading="lazy"><h3>Vert Émeraude</h3><a href="#contact">Réserver</a></article>
-        <article class="product-card animate-on-scroll"><img src="assets/images/gris.png" alt="Gris Clair" loading="lazy"><h3>Gris Clair</h3><a href="#contact">Réserver</a></article>
-        <article class="product-card animate-on-scroll"><img src="assets/images/bluestrong.png" alt="Bleu Royal" loading="lazy"><h3>Bleu Royal</h3><a href="#contact">Réserver</a></article>
-        <article class="product-card animate-on-scroll"><img src="assets/images/bluee.png" alt="Bleu Élégance" loading="lazy"><h3>Bleu Élégance</h3><a href="#contact">Réserver</a></article>
-        <article class="product-card animate-on-scroll"><img src="assets/images/royal.png" alt="Royal Prestige" loading="lazy"><h3>Royal Prestige</h3><a href="#contact">Réserver</a></article>
-        <article class="product-card animate-on-scroll"><img src="assets/images/blackpapion.png" alt="Smoking Papillon Noir" loading="lazy"><h3>Smoking Papillon Noir</h3><a href="#contact">Réserver</a></article>
-        <article class="product-card animate-on-scroll"><img src="assets/images/bage.png" alt="Beige Élégance" loading="lazy"><h3>Beige Élégance</h3><a href="#contact">Réserver</a></article>
-        <article class="product-card animate-on-scroll"><img src="assets/images/greenroyal.png" alt="Vert Royal" loading="lazy"><h3>Vert Royal</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/products/smoking-noir.jpg" alt="Smoking Noir" loading="lazy"><h3>Smoking Noir</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/products/smoking-noir-3-pieces-col-chale.jpg" alt="Smoking Noir 3 Pièces Col Châle" loading="lazy"><h3>Smoking Noir 3 Pièces Col Châle</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/products/smoking-noir-ceinture-col-chale.jpg" alt="Smoking Noir Ceinture Col Châle" loading="lazy"><h3>Smoking Noir Ceinture Col Châle</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/products/smoking-blanc-col-chale.jpg" alt="Smoking Blanc Col Châle" loading="lazy"><h3>Smoking Blanc Col Châle</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/products/smoking-bleu-col-chale.jpg" alt="Smoking Bleu Col Châle" loading="lazy"><h3>Smoking Bleu Col Châle</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/products/smoking-bleu.jpg" alt="Smoking Bleu" loading="lazy"><h3>Smoking Bleu</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/products/croise-noir.jpg" alt="Croisé Noir" loading="lazy"><h3>Croisé Noir</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/products/croise-bleu.jpg" alt="Croisé Bleu" loading="lazy"><h3>Croisé Bleu</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/products/croise-vert-raye.jpg" alt="Croisé Vert Rayé" loading="lazy"><h3>Croisé Vert Rayé</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/products/bordeau-3-pieces.jpg" alt="Bordeau 3 Pièces" loading="lazy"><h3>Bordeau 3 Pièces</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/products/gris-raye.jpg" alt="Gris Rayé" loading="lazy"><h3>Gris Rayé</h3><a href="#contact">Réserver</a></article>
+        <article class="product-card animate-on-scroll"><img src="assets/images/products/vert-simple.jpg" alt="Vert Simple" loading="lazy"><h3>Vert Simple</h3><a href="#contact">Réserver</a></article>
       </div>
       <div class="section-actions animate-on-scroll"><a class="button button-outline" href="nos-produits.html">Voir plus</a></div>
     </section>
@@ -1486,17 +1490,17 @@
       <div class="contact-layout">
         <div class="map-box animate-on-scroll" id="contact">
           <div class="map-frame">
-            <iframe title="Carte Le Costume.ma Casablanca" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=le%20costume.ma%20-%20Location%20costume%20Homme%20Casablanca%2C%20%D8%A7%D9%84%D8%AF%D8%A7%D8%B1%20%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A7%D8%AA%D8%8C%20Casablanca%2020260&output=embed"></iframe>
+            <iframe title="Carte Le Costume.ma Casablanca" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=le%20costume.ma%20-%20Location%20costume%20Homme%20Casablanca%2C%20Rue%20des%20Facult%C3%A9s%2C%20Casablanca%2020260&output=embed"></iframe>
           </div>
         </div>
         <div class="contact-side animate-on-scroll">
-          <a class="map-button" href="https://www.google.com/maps/search/?api=1&query=le%20costume.ma%20-%20Location%20costume%20Homme%20Casablanca%2C%20%D8%A7%D9%84%D8%AF%D8%A7%D8%B1%20%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A7%D8%AA%D8%8C%20Casablanca%2020260" target="_blank" rel="noopener">
+          <a class="map-button" href="https://www.google.com/maps/search/?api=1&query=le%20costume.ma%20-%20Location%20costume%20Homme%20Casablanca%2C%20Rue%20des%20Facult%C3%A9s%2C%20Casablanca%2020260" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
             Ouvrir dans Google Maps
           </a>
           <div class="contact-pills">
-            <div class="contact-pill"><span><svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></span> le costume.ma - Location costume Homme Casablanca, الدار شارع الكليات، Casablanca 20260</div>
-            <div class="contact-pill"><span><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6.4 6.4l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg></span> 060 67 44 844</div>
+            <div class="contact-pill"><span><svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></span> le costume.ma - Location costume Homme Casablanca, Rue des Facultés, Casablanca 20260</div>
+            <div class="contact-pill"><span><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6.4 6.4l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg></span> +212 663-582327</div>
             <div class="contact-pill"><span><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span> contact@lecostume.ma</div>
           </div>
         </div>
@@ -1525,11 +1529,11 @@
       <a class="instagram-link" href="https://instagram.com/lecostume.ma" target="_blank" rel="noopener" aria-label="Suivre LE COSTUME.MA sur Instagram">
         <div class="section-title animate-on-scroll"><h2>Suivez-Nous Sur Instagram</h2><span class="ornament"></span></div>
         <div class="instagram-grid">
-          <div class="insta-photo animate-on-scroll"><img src="assets/images/hero-costume.jpg" alt="Costume noir LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
-          <div class="insta-photo animate-on-scroll"><img src="assets/images/blanc.png" alt="Costume blanc LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
-          <div class="insta-photo animate-on-scroll"><img src="assets/images/bluemarine.png" alt="Costume bleu marine LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
-          <div class="insta-photo animate-on-scroll"><img src="assets/images/red.png" alt="Costume bordeaux LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
-          <div class="insta-photo animate-on-scroll"><img src="assets/images/green.png" alt="Costume vert LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
+          <div class="insta-photo animate-on-scroll"><img src="assets/images/products/smoking-noir.jpg" alt="Costume noir LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
+          <div class="insta-photo animate-on-scroll"><img src="assets/images/products/smoking-blanc-col-chale.jpg" alt="Costume blanc LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
+          <div class="insta-photo animate-on-scroll"><img src="assets/images/products/croise-bleu.jpg" alt="Costume bleu LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
+          <div class="insta-photo animate-on-scroll"><img src="assets/images/products/bordeau-3-pieces.jpg" alt="Costume bordeaux LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
+          <div class="insta-photo animate-on-scroll"><img src="assets/images/products/vert-simple.jpg" alt="Costume vert LE COSTUME.MA" loading="lazy"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg></div>
           <div class="insta-tile animate-on-scroll"><strong>@lecostume.ma</strong><em>Nous Suivre</em></div>
         </div>
       </a>
@@ -1551,15 +1555,15 @@
 
   <footer class="site-footer">
     <div class="footer-grid">
-      <div><a class="brand" href="#accueil"><span class="brand-mark"><img src="assets/images/logo.png" alt="Logo LE COSTUME.MA" loading="lazy"></span><span class="brand-copy"><span class="brand-name">LE COSTUME.MA</span><span class="brand-subtitle">Location de Costumes pour Homme</span></span></a><p>Location de costumes pour homme à Casablanca pour mariage, soirée, business et événements élégants.</p><div class="social-links"><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v7h4v-7h3l1-4h-4V9c0-.7.3-1 1-1Z"/></svg></a><a href="https://instagram.com/lecostume.ma" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm6-1.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></a><a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M15 3c.4 3 2 4.7 5 5v4c-1.9 0-3.6-.6-5-1.8V16a6 6 0 1 1-6-6c.4 0 .7 0 1 .1v4.2c-.3-.1-.6-.2-1-.2a2 2 0 1 0 2 2V3h4Z"/></svg></a><a href="https://wa.me/212606744844" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.6 13.7c-.2.6-1.2 1.1-1.7 1.2-.5.1-1.1.2-3.5-.8-3-1.3-5-4.3-5.1-4.5-.2-.2-1.2-1.6-1.2-3 0-1.5.7-2.2 1-2.5.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.5-.2.8-.1l1.8.9c.3.1.5.2.5.4 0 .2 0 .8-.2 1.4Z"/></svg></a></div></div>
-      <div><h3>Liens Rapides</h3><a href="#accueil">Accueil</a><a href="#costumes">Nos Costumes</a><a href="#modeles">Modèles</a><a href="#collections">Collections</a><a href="#apropos">À Propos</a><a href="#contact">Contact</a></div>
+      <div><a class="footer-logo-link" href="#accueil" aria-label="Accueil LE COSTUME.MA"><img class="footer-logo" src="assets/images/footer.png" alt="Logo LE COSTUME.MA" loading="lazy"></a><p>Location de costumes pour homme à Casablanca pour mariage, soirée, business et événements élégants.</p><div class="social-links"><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v7h4v-7h3l1-4h-4V9c0-.7.3-1 1-1Z"/></svg></a><a href="https://instagram.com/lecostume.ma" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm6-1.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg></a><a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M15 3c.4 3 2 4.7 5 5v4c-1.9 0-3.6-.6-5-1.8V16a6 6 0 1 1-6-6c.4 0 .7 0 1 .1v4.2c-.3-.1-.6-.2-1-.2a2 2 0 1 0 2 2V3h4Z"/></svg></a><a href="https://wa.me/212663582327" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.6 13.7c-.2.6-1.2 1.1-1.7 1.2-.5.1-1.1.2-3.5-.8-3-1.3-5-4.3-5.1-4.5-.2-.2-1.2-1.6-1.2-3 0-1.5.7-2.2 1-2.5.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.5-.2.8-.1l1.8.9c.3.1.5.2.5.4 0 .2 0 .8-.2 1.4Z"/></svg></a></div></div>
+      <div><h3>Liens Rapides</h3><a href="#accueil">Accueil</a><a href="#costumes">Nos Costumes</a><a href="#modeles">Modèles</a><a href="#costumes">Collections</a><a href="#apropos">À Propos</a><a href="#contact">Contact</a></div>
       <div><h3>Informations</h3><a href="#">Retours & échanges</a><a href="#">Conditions générales</a></div>
-      <div><h3>Contactez-Nous</h3><span><span class="info-icon">☎</span> 060 67 44 844</span><span><span class="info-icon">✉</span> contact@lecostume.ma</span><span><span class="info-icon">⌖</span> Casablanca, Oulfa, Maroc</span></div>
+      <div><h3>Contactez-Nous</h3><span><span class="info-icon">☎</span> +212 663-582327</span><span><span class="info-icon">✉</span> contact@lecostume.ma</span><span><span class="info-icon">⌖</span> Casablanca, Oulfa, Maroc</span></div>
     </div>
     <div class="footer-bottom"><p>© 2025 LE COSTUME.MA — Tous droits réservés.</p><div><span>VISA</span><span>Mastercard</span><span>CMI</span></div></div>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/212606744844" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <a class="whatsapp-float" href="https://wa.me/212663582327" target="_blank" rel="noopener" aria-label="WhatsApp">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#ffffff">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
@@ -1668,22 +1672,22 @@
       form.querySelectorAll(".field").forEach((wrapper) => wrapper.classList.remove("active"));
     }));
 
-    const whatsappNumber = "212606744844";
+    const whatsappNumber = "212663582327";
     const buildWhatsappLink = (message) => `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     const defaultReservationMessage = "Bonjour LE COSTUME.MA, je souhaite réserver un costume. Pouvez-vous me confirmer les disponibilités et les tailles ?";
     const suitData = [
-      { name: "Smoking Noir Classic", imageUrl: "assets/images/hero-costume.jpg" },
-      { name: "Blanc Élégance", imageUrl: "assets/images/blanc.png" },
-      { name: "Bleu Marine", imageUrl: "assets/images/bluemarine.png" },
-      { name: "Bordeaux Prestige", imageUrl: "assets/images/red.png" },
-      { name: "Vert Émeraude", imageUrl: "assets/images/green.png" },
-      { name: "Gris Clair", imageUrl: "assets/images/gris.png" },
-      { name: "Bleu Royal", imageUrl: "assets/images/bluestrong.png" },
-      { name: "Bleu Élégance", imageUrl: "assets/images/bluee.png" },
-      { name: "Royal Prestige", imageUrl: "assets/images/royal.png" },
-      { name: "Smoking Papillon Noir", imageUrl: "assets/images/blackpapion.png" },
-      { name: "Beige Élégance", imageUrl: "assets/images/bage.png" },
-      { name: "Vert Royal", imageUrl: "assets/images/greenroyal.png" }
+      { name: "Smoking Noir", imageUrl: "assets/images/products/smoking-noir.jpg" },
+      { name: "Smoking Noir 3 Pièces Col Châle", imageUrl: "assets/images/products/smoking-noir-3-pieces-col-chale.jpg" },
+      { name: "Smoking Noir Ceinture Col Châle", imageUrl: "assets/images/products/smoking-noir-ceinture-col-chale.jpg" },
+      { name: "Smoking Blanc Col Châle", imageUrl: "assets/images/products/smoking-blanc-col-chale.jpg" },
+      { name: "Smoking Bleu Col Châle", imageUrl: "assets/images/products/smoking-bleu-col-chale.jpg" },
+      { name: "Smoking Bleu", imageUrl: "assets/images/products/smoking-bleu.jpg" },
+      { name: "Croisé Noir", imageUrl: "assets/images/products/croise-noir.jpg" },
+      { name: "Croisé Bleu", imageUrl: "assets/images/products/croise-bleu.jpg" },
+      { name: "Croisé Vert Rayé", imageUrl: "assets/images/products/croise-vert-raye.jpg" },
+      { name: "Bordeau 3 Pièces", imageUrl: "assets/images/products/bordeau-3-pieces.jpg" },
+      { name: "Gris Rayé", imageUrl: "assets/images/products/gris-raye.jpg" },
+      { name: "Vert Simple", imageUrl: "assets/images/products/vert-simple.jpg" }
     ];
     const suitByName = new Map(suitData.map((suit) => [suit.name.toLowerCase(), suit]));
     const setWhatsappReservation = (link, message) => {
