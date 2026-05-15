@@ -73,6 +73,20 @@
       letter-spacing: .18em;
       text-transform: uppercase;
     }
+    .nav-actions button {
+      background: transparent;
+      border: 1px solid rgba(201, 168, 76, .55);
+      color: var(--gold);
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      min-height: 38px;
+      padding: 9px 14px;
+      text-transform: uppercase;
+    }
+    .nav-actions button:hover { background: var(--gold); color: var(--black); }
     .nav-actions a:hover { color: var(--gold); }
     .nav-cta {
       background: var(--gold);
@@ -255,6 +269,117 @@
       box-shadow: 0 8px 22px rgba(212, 175, 55, .24);
       color: var(--black);
     }
+    .admin-panel {
+      background: #111;
+      border: 1px solid rgba(201, 168, 76, .24);
+      display: none;
+      margin-bottom: 30px;
+      padding: 22px;
+    }
+    .admin-panel.is-open { display: block; }
+    .admin-panel h2 {
+      color: var(--gold);
+      font-size: clamp(1.6rem, 3vw, 2.6rem);
+      margin-bottom: 6px;
+    }
+    .admin-panel p {
+      color: rgba(245, 240, 232, .66);
+      margin-bottom: 18px;
+    }
+    .admin-form {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .admin-form label {
+      color: rgba(245, 240, 232, .72);
+      display: grid;
+      font-family: var(--font-sans);
+      font-size: .72rem;
+      gap: 7px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .admin-form input,
+    .admin-form select {
+      background: #080808;
+      border: 1px solid rgba(201, 168, 76, .24);
+      color: var(--white);
+      font: 500 .9rem var(--font-sans);
+      min-height: 44px;
+      padding: 10px 12px;
+      width: 100%;
+    }
+    .admin-form .full { grid-column: 1 / -1; }
+    .admin-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .admin-actions button,
+    .admin-card-actions button,
+    .admin-modal button {
+      border: 1px solid rgba(201, 168, 76, .68);
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      min-height: 40px;
+      padding: 10px 14px;
+      text-transform: uppercase;
+    }
+    .admin-primary { background: var(--gold); color: var(--black); }
+    .admin-secondary { background: transparent; color: var(--gold); }
+    .admin-danger { background: transparent; border-color: rgba(200, 62, 62, .72) !important; color: #ff8a8a; }
+    .admin-card-actions {
+      display: none;
+      gap: 8px;
+      padding: 0 16px 16px;
+      position: relative;
+      z-index: 6;
+    }
+    .admin-active .admin-card-actions { display: grid; grid-template-columns: 1fr 1fr; }
+    .admin-card-actions button { min-height: 34px; padding: 8px 10px; }
+    .admin-modal {
+      align-items: center;
+      background: rgba(0, 0, 0, .74);
+      display: none;
+      inset: 0;
+      justify-content: center;
+      padding: 18px;
+      position: fixed;
+      z-index: 100;
+    }
+    .admin-modal.is-open { display: flex; }
+    .admin-dialog {
+      background: #111;
+      border: 1px solid rgba(201, 168, 76, .35);
+      max-width: 430px;
+      padding: 24px;
+      width: 100%;
+    }
+    .admin-dialog h2 { color: var(--gold); font-size: 2rem; margin-bottom: 8px; }
+    .admin-dialog p { color: rgba(245, 240, 232, .68); margin-bottom: 14px; }
+    .admin-dialog label {
+      color: rgba(245, 240, 232, .72);
+      display: grid;
+      font-family: var(--font-sans);
+      font-size: .72rem;
+      gap: 7px;
+      letter-spacing: .08em;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .admin-dialog input {
+      background: #080808;
+      border: 1px solid rgba(201, 168, 76, .24);
+      color: var(--white);
+      min-height: 44px;
+      padding: 10px 12px;
+    }
+    .admin-message { color: #ffb7b7 !important; min-height: 1.5em; }
     .footer {
       background: #111;
       border-top: 1px solid rgba(201, 168, 76, .22);
@@ -292,6 +417,7 @@
       .brand strong { font-size: 11px; white-space: nowrap; }
       .brand small { display: none; }
       .nav-actions a:not(.nav-cta) { display: none; }
+      .nav-actions button { font-size: .58rem; padding: 8px 10px; }
       .nav-cta { font-size: .62rem; letter-spacing: .12em; padding: 10px 12px; }
       .hero { padding: 108px 1rem 44px; }
       .hero p { font-size: .96rem; margin-top: 18px; }
@@ -305,6 +431,7 @@
       .product-card a { font-size: .6rem; letter-spacing: .1em; padding: 8px 6px; }
       .footer { flex-direction: column; }
       .whatsapp-float { bottom: 1rem; height: 50px; right: 1rem; width: 50px; }
+      .admin-form { grid-template-columns: 1fr; }
     }
     @media (max-width: 420px) {
       .hero { padding-top: 100px; }
@@ -342,6 +469,163 @@
         transform: none !important;
       }
     }
+
+    /* Phone-first final overrides */
+    @media (max-width: 768px) {
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+      body { padding-top: 64px; }
+      .navbar {
+        gap: 8px;
+        height: 64px;
+        padding: 0 10px;
+      }
+      .brand {
+        flex: 1 1 auto;
+        gap: 8px;
+        min-width: 0;
+      }
+      .brand img {
+        flex: 0 0 40px;
+        height: 40px;
+        width: 40px;
+      }
+      .brand span {
+        min-width: 0;
+      }
+      .brand strong {
+        display: block;
+        font-size: 10px;
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .brand small { display: none; }
+      .nav-actions {
+        flex: 0 0 auto;
+        gap: 6px;
+      }
+      .nav-actions a:first-child {
+        display: none;
+      }
+      .nav-actions button,
+      .nav-cta {
+        font-size: .56rem;
+        letter-spacing: .08em;
+        min-height: 36px;
+        padding: 8px 9px;
+      }
+      .hero {
+        padding: 92px 1rem 38px;
+      }
+      .hero p {
+        font-size: .95rem;
+        margin-top: 16px;
+      }
+      .eyebrow {
+        font-size: .62rem;
+        letter-spacing: .2em;
+      }
+      h1 {
+        font-size: clamp(2.1rem, 12vw, 3.5rem);
+      }
+      .catalogue {
+        padding: 24px 1rem 82px;
+      }
+      .catalogue-head {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+      .catalogue-head h2 {
+        font-size: clamp(1.55rem, 8vw, 2.4rem);
+      }
+      .catalogue-head span {
+        font-size: .62rem;
+      }
+      .product-grid {
+        gap: 12px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .product-card {
+        border-radius: 12px;
+        min-width: 0;
+      }
+      .product-image,
+      .product-card figure {
+        border-radius: 12px 12px 0 0;
+        height: clamp(170px, 48vw, 230px);
+      }
+      .product-card img {
+        padding: 6px;
+      }
+      .product-card h3 {
+        font-size: .68rem;
+        letter-spacing: .045em;
+        line-height: 1.25;
+        min-height: 3.35em;
+        padding: 14px 9px 0;
+      }
+      .product-card a {
+        font-size: .54rem;
+        letter-spacing: .08em;
+        margin: 12px 9px 12px;
+        min-height: 38px;
+        padding: 8px 6px;
+      }
+      .admin-panel {
+        margin-bottom: 20px;
+        padding: 16px;
+      }
+      .admin-panel h2 {
+        font-size: 1.8rem;
+      }
+      .admin-form {
+        grid-template-columns: 1fr;
+      }
+      .admin-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .admin-card-actions {
+        grid-template-columns: 1fr !important;
+        padding: 0 9px 12px;
+      }
+      .admin-dialog {
+        max-height: calc(100dvh - 32px);
+        overflow-y: auto;
+        padding: 18px;
+      }
+      .footer {
+        align-items: center;
+        flex-direction: column;
+        padding: 24px 1rem 82px;
+        text-align: center;
+      }
+      .whatsapp-float {
+        bottom: 1rem;
+        height: 48px;
+        right: 1rem;
+        width: 48px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .nav-cta {
+        display: none;
+      }
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      .product-card {
+        margin-inline: auto;
+        max-width: 310px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -352,6 +636,7 @@
     </a>
     <nav class="nav-actions" aria-label="Navigation catalogue">
       <a href="index.html">Accueil</a>
+      <button id="admin-open" type="button">Espace Admin</button>
       <a href="index.html#contact" class="nav-cta">Réserver</a>
     </nav>
   </header>
@@ -364,11 +649,40 @@
     </section>
 
     <section class="catalogue">
+      <section class="admin-panel" id="admin-panel" aria-label="Gestion des produits">
+        <h2>Gestion des produits</h2>
+        <p>Modifier les noms, remplacer les photos, ajouter ou supprimer des costumes.</p>
+        <form class="admin-form" id="product-form">
+          <input type="hidden" id="product-id">
+          <label>Nom du produit
+            <input id="product-name" type="text" required placeholder="Smoking Noir">
+          </label>
+          <label>Catégorie
+            <select id="product-category">
+              <option value="smokings">Smokings</option>
+              <option value="croisees">Croisées</option>
+              <option value="classiques">Classiques</option>
+              <option value="mariage">Mariage</option>
+            </select>
+          </label>
+          <label>Image par lien
+            <input id="product-image" type="text" placeholder="assets/images/products/photo.jpg">
+          </label>
+          <label>Importer image
+            <input id="product-file" type="file" accept="image/*">
+          </label>
+          <div class="admin-actions full">
+            <button class="admin-primary" type="submit">Enregistrer</button>
+            <button class="admin-secondary" id="admin-new" type="button">Ajouter nouveau</button>
+            <button class="admin-secondary" id="admin-logout" type="button">Déconnexion</button>
+          </div>
+        </form>
+      </section>
       <div class="catalogue-head">
         <h2>Tous les costumes</h2>
         <span id="catalogue-count">19 modèles</span>
       </div>
-      <div class="product-grid">
+      <div class="product-grid" id="product-grid">
         <article class="product-card" data-category="smokings"><figure><img src="assets/images/products/smoking-noir.jpg" alt="Smoking Noir" loading="lazy"></figure><h3>Smoking Noir</h3><a href="index.html#contact">Réserver</a></article>
         <article class="product-card" data-category="smokings"><figure><img src="assets/images/products/smoking-noir-3-pieces-col-chale.jpg" alt="Smoking Noir 3 Pièces Col Châle" loading="lazy"></figure><h3>Smoking Noir 3 Pièces Col Châle</h3><a href="index.html#contact">Réserver</a></article>
         <article class="product-card" data-category="smokings"><figure><img src="assets/images/products/smoking-noir-ceinture-col-chale.jpg" alt="Smoking Noir Ceinture Col Châle" loading="lazy"></figure><h3>Smoking Noir Ceinture Col Châle</h3><a href="index.html#contact">Réserver</a></article>
@@ -392,6 +706,24 @@
     </section>
   </main>
 
+  <div class="admin-modal" id="admin-modal" aria-hidden="true">
+    <form class="admin-dialog" id="admin-login">
+      <h2>Espace Admin</h2>
+      <p>Entrez l'email autorisé et le code admin pour gérer les produits.</p>
+      <label>Email admin
+        <input id="admin-email" type="email" required placeholder="contact@lecostume.ma">
+      </label>
+      <label>Code admin
+        <input id="admin-code" type="password" required placeholder="Code">
+      </label>
+      <p class="admin-message" id="admin-message"></p>
+      <div class="admin-actions">
+        <button class="admin-primary" type="submit">Entrer</button>
+        <button class="admin-secondary" id="admin-close" type="button">Fermer</button>
+      </div>
+    </form>
+  </div>
+
   <footer class="footer">
     <p><strong>LE COSTUME.MA</strong> — Location de costumes pour homme à Casablanca.</p>
     <p>+212 663-582327 · contact@lecostume.ma</p>
@@ -405,94 +737,105 @@
     const whatsappNumber = "212663582327";
     const buildWhatsappLink = (message) => `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     const defaultReservationMessage = "Bonjour LE COSTUME.MA, je souhaite réserver un costume. Pouvez-vous me confirmer les disponibilités et les tailles ?";
-    const suitData = [
-      { name: "Smoking Noir", imageUrl: "assets/images/products/smoking-noir.jpg" },
-      { name: "Smoking Noir 3 Pièces Col Châle", imageUrl: "assets/images/products/smoking-noir-3-pieces-col-chale.jpg" },
-      { name: "Smoking Noir Ceinture Col Châle", imageUrl: "assets/images/products/smoking-noir-ceinture-col-chale.jpg" },
-      { name: "Smoking Blanc Col Châle", imageUrl: "assets/images/products/smoking-blanc-col-chale.jpg" },
-      { name: "Smoking Bleu Col Châle", imageUrl: "assets/images/products/smoking-bleu-col-chale.jpg" },
-      { name: "Smoking Bleu", imageUrl: "assets/images/products/smoking-bleu.jpg" },
-      { name: "Croisé Noir", imageUrl: "assets/images/products/croise-noir.jpg" },
-      { name: "Croisé Bleu", imageUrl: "assets/images/products/croise-bleu.jpg" },
-      { name: "Croisé Vert Rayé", imageUrl: "assets/images/products/croise-vert-raye.jpg" },
-      { name: "Bordeau 3 Pièces", imageUrl: "assets/images/products/bordeau-3-pieces.jpg" },
-      { name: "Gris Rayé", imageUrl: "assets/images/products/gris-raye.jpg" },
-      { name: "Vert Simple", imageUrl: "assets/images/products/vert-simple.jpg" },
-      { name: "Costume Bleu Beige 3 Pièces", imageUrl: "assets/images/products/costume-bleu-beige-3-pieces.jpg" },
-      { name: "Noir Soirée", imageUrl: "assets/images/products/noir-soiree.jpg" },
-      { name: "Officie Bleu", imageUrl: "assets/images/products/officie-bleu.jpg" },
-      { name: "Officier Beige", imageUrl: "assets/images/products/officier-beige.jpg" },
-      { name: "Officier Bleu", imageUrl: "assets/images/products/officier-bleu.jpg" },
-      { name: "Simple Bleu", imageUrl: "assets/images/products/simple-bleu.jpg" },
-      { name: "Simple Bleu 2", imageUrl: "assets/images/products/simple-bleu-2.jpg" }
+    const productStoreKey = "lecostume.products";
+    const adminSessionKey = "lecostume.admin";
+    const allowedAdminEmails = ["contact@lecostume.ma"];
+    const adminAccessCode = "admin2026";
+    const defaultProducts = [
+      { id: "smoking-noir", name: "Smoking Noir", imageUrl: "assets/images/products/smoking-noir.jpg", category: "smokings" },
+      { id: "smoking-noir-3-pieces", name: "Smoking Noir 3 Pièces Col Châle", imageUrl: "assets/images/products/smoking-noir-3-pieces-col-chale.jpg", category: "smokings" },
+      { id: "smoking-noir-ceinture", name: "Smoking Noir Ceinture Col Châle", imageUrl: "assets/images/products/smoking-noir-ceinture-col-chale.jpg", category: "smokings" },
+      { id: "smoking-blanc", name: "Smoking Blanc Col Châle", imageUrl: "assets/images/products/smoking-blanc-col-chale.jpg", category: "smokings" },
+      { id: "smoking-bleu-col", name: "Smoking Bleu Col Châle", imageUrl: "assets/images/products/smoking-bleu-col-chale.jpg", category: "smokings" },
+      { id: "smoking-bleu", name: "Smoking Bleu", imageUrl: "assets/images/products/smoking-bleu.jpg", category: "smokings" },
+      { id: "croise-noir", name: "Croisé Noir", imageUrl: "assets/images/products/croise-noir.jpg", category: "croisees" },
+      { id: "croise-bleu", name: "Croisé Bleu", imageUrl: "assets/images/products/croise-bleu.jpg", category: "croisees" },
+      { id: "croise-vert-raye", name: "Croisé Vert Rayé", imageUrl: "assets/images/products/croise-vert-raye.jpg", category: "croisees" },
+      { id: "bordeau-3-pieces", name: "Bordeau 3 Pièces", imageUrl: "assets/images/products/bordeau-3-pieces.jpg", category: "mariage" },
+      { id: "gris-raye", name: "Gris Rayé", imageUrl: "assets/images/products/gris-raye.jpg", category: "mariage" },
+      { id: "vert-simple", name: "Vert Simple", imageUrl: "assets/images/products/vert-simple.jpg", category: "classiques" },
+      { id: "costume-bleu-beige", name: "Costume Bleu Beige 3 Pièces", imageUrl: "assets/images/products/costume-bleu-beige-3-pieces.jpg", category: "mariage" },
+      { id: "noir-soiree", name: "Noir Soirée", imageUrl: "assets/images/products/noir-soiree.jpg", category: "smokings" },
+      { id: "officie-bleu", name: "Officie Bleu", imageUrl: "assets/images/products/officie-bleu.jpg", category: "classiques" },
+      { id: "officier-beige", name: "Officier Beige", imageUrl: "assets/images/products/officier-beige.jpg", category: "mariage" },
+      { id: "officier-bleu", name: "Officier Bleu", imageUrl: "assets/images/products/officier-bleu.jpg", category: "classiques" },
+      { id: "simple-bleu", name: "Simple Bleu", imageUrl: "assets/images/products/simple-bleu.jpg", category: "classiques" },
+      { id: "simple-bleu-2", name: "Simple Bleu 2", imageUrl: "assets/images/products/simple-bleu-2.jpg", category: "classiques" }
     ];
-    const suitByName = new Map(suitData.map((suit) => [suit.name.toLowerCase(), suit]));
-    const setWhatsappReservation = (link, message) => {
-      if (!link) return;
-      link.href = buildWhatsappLink(message);
-      link.target = "_blank";
-      link.rel = "noopener";
-    };
-
-    document.querySelectorAll(".nav-cta").forEach((link) => {
-      setWhatsappReservation(link, defaultReservationMessage);
-    });
-
-    const enhanceProductCards = () => {
-      document.querySelectorAll(".product-card").forEach((card) => {
-        const image = card.querySelector("img");
-        if (!image) return;
-
-        let imageLayer = image.closest("figure, .product-image");
-        if (!imageLayer) {
-          imageLayer = document.createElement("div");
-          imageLayer.className = "product-image";
-          image.parentNode.insertBefore(imageLayer, image);
-          imageLayer.appendChild(image);
-        } else {
-          imageLayer.classList.add("product-image");
-        }
-
-        if (!imageLayer.querySelector(".product-shine")) {
-          imageLayer.appendChild(document.createElement("div")).className = "product-shine";
-        }
-
-        const productName = card.querySelector("h3")?.textContent?.trim();
-        const reserveLink = card.querySelector("a");
-
-        if (!productName || !reserveLink) return;
-        setWhatsappReservation(
-          reserveLink,
-          `Bonjour LE COSTUME.MA, je souhaite réserver le costume "${productName}". Pouvez-vous me confirmer la disponibilité et les tailles ?`
-        );
-      });
-    };
-
-    enhanceProductCards();
-
+    let products = [];
+    let isAdmin = sessionStorage.getItem(adminSessionKey) === "true";
+    const grid = document.querySelector("#product-grid");
+    const countLabel = document.querySelector("#catalogue-count");
+    const adminPanel = document.querySelector("#admin-panel");
+    const adminModal = document.querySelector("#admin-modal");
+    const adminMessage = document.querySelector("#admin-message");
+    const selectedCategory = new URLSearchParams(window.location.search).get("categorie");
     const categoryLabels = {
       smokings: "Smokings",
       croisees: "Croisées",
       classiques: "Classiques",
       mariage: "Mariage"
     };
-    const selectedCategory = new URLSearchParams(window.location.search).get("categorie");
+    const setWhatsappReservation = (link, message) => {
+      if (!link) return;
+      link.href = buildWhatsappLink(message);
+      link.target = "_blank";
+      link.rel = "noopener";
+    };
+    const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[char]));
+    const loadProducts = () => {
+      try {
+        const savedProducts = JSON.parse(localStorage.getItem(productStoreKey));
+        products = Array.isArray(savedProducts) && savedProducts.length ? savedProducts : defaultProducts;
+      } catch {
+        products = defaultProducts;
+      }
+    };
+    const saveProducts = () => localStorage.setItem(productStoreKey, JSON.stringify(products));
+
+    document.querySelectorAll(".nav-cta").forEach((link) => {
+      setWhatsappReservation(link, defaultReservationMessage);
+    });
+
     if (selectedCategory && categoryLabels[selectedCategory]) {
-      const cards = document.querySelectorAll(".product-card");
-      let visibleCount = 0;
-      cards.forEach((card) => {
-        const isVisible = card.dataset.category === selectedCategory;
-        card.classList.toggle("is-hidden", !isVisible);
-        card.style.display = isVisible ? "" : "none";
-        if (isVisible) visibleCount += 1;
-      });
       document.querySelector(".hero h1").textContent = categoryLabels[selectedCategory];
       document.querySelector(".catalogue-head h2").textContent = `Collection ${categoryLabels[selectedCategory]}`;
-      document.querySelector("#catalogue-count").textContent = `${visibleCount} modèles`;
     }
 
-    const canUseProductTilt = window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 769px)").matches;
-    if (canUseProductTilt) {
+    const renderProducts = () => {
+      const visibleProducts = selectedCategory && categoryLabels[selectedCategory]
+        ? products.filter((product) => product.category === selectedCategory)
+        : products;
+      grid.innerHTML = visibleProducts.map((product) => `
+        <article class="product-card" data-id="${escapeHtml(product.id)}" data-category="${escapeHtml(product.category)}">
+          <figure class="product-image"><img src="${escapeHtml(product.imageUrl)}" alt="${escapeHtml(product.name)}" loading="lazy"><div class="product-shine"></div></figure>
+          <h3>${escapeHtml(product.name)}</h3>
+          <a href="index.html#contact">Réserver</a>
+          <div class="admin-card-actions">
+            <button class="admin-secondary" type="button" data-edit="${escapeHtml(product.id)}">Modifier</button>
+            <button class="admin-danger" type="button" data-delete="${escapeHtml(product.id)}">Delete</button>
+          </div>
+        </article>
+      `).join("");
+      document.body.classList.toggle("admin-active", isAdmin);
+      adminPanel.classList.toggle("is-open", isAdmin);
+      countLabel.textContent = `${visibleProducts.length} modèles`;
+      grid.querySelectorAll(".product-card a").forEach((link) => {
+        const name = link.closest(".product-card")?.querySelector("h3")?.textContent?.trim();
+        setWhatsappReservation(link, `Bonjour LE COSTUME.MA, je souhaite réserver le costume "${name}". Pouvez-vous me confirmer la disponibilité et les tailles ?`);
+      });
+      bindProductTilt();
+    };
+
+    const bindProductTilt = () => {
+      const canUseProductTilt = window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 769px)").matches;
+      if (!canUseProductTilt) return;
       document.querySelectorAll(".product-card").forEach((card) => {
         let rafId = 0;
         card.addEventListener("pointermove", (event) => {
@@ -521,7 +864,103 @@
           card.style.setProperty("--img-y", "0px");
         });
       });
-    }
+    };
+
+    const resetForm = () => {
+      document.querySelector("#product-id").value = "";
+      document.querySelector("#product-name").value = "";
+      document.querySelector("#product-category").value = selectedCategory && categoryLabels[selectedCategory] ? selectedCategory : "smokings";
+      document.querySelector("#product-image").value = "";
+      document.querySelector("#product-file").value = "";
+    };
+    const fillForm = (product) => {
+      document.querySelector("#product-id").value = product.id;
+      document.querySelector("#product-name").value = product.name;
+      document.querySelector("#product-category").value = product.category;
+      document.querySelector("#product-image").value = product.imageUrl.startsWith("data:") ? "" : product.imageUrl;
+      document.querySelector("#product-file").value = "";
+      adminPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    const readImageFile = (file) => new Promise((resolve) => {
+      if (!file) {
+        resolve("");
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.readAsDataURL(file);
+    });
+
+    document.querySelector("#admin-open").addEventListener("click", () => {
+      if (isAdmin) {
+        adminPanel.classList.toggle("is-open");
+        return;
+      }
+      adminModal.classList.add("is-open");
+      adminModal.setAttribute("aria-hidden", "false");
+      document.querySelector("#admin-email").focus();
+    });
+    document.querySelector("#admin-close").addEventListener("click", () => {
+      adminModal.classList.remove("is-open");
+      adminModal.setAttribute("aria-hidden", "true");
+      adminMessage.textContent = "";
+    });
+    document.querySelector("#admin-login").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const email = document.querySelector("#admin-email").value.trim().toLowerCase();
+      const code = document.querySelector("#admin-code").value.trim();
+      if (!allowedAdminEmails.includes(email) || code !== adminAccessCode) {
+        adminMessage.textContent = "Email ou code incorrect.";
+        return;
+      }
+      isAdmin = true;
+      sessionStorage.setItem(adminSessionKey, "true");
+      adminModal.classList.remove("is-open");
+      adminModal.setAttribute("aria-hidden", "true");
+      renderProducts();
+    });
+    document.querySelector("#admin-logout").addEventListener("click", () => {
+      isAdmin = false;
+      sessionStorage.removeItem(adminSessionKey);
+      resetForm();
+      renderProducts();
+    });
+    document.querySelector("#admin-new").addEventListener("click", resetForm);
+    document.querySelector("#product-form").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const id = document.querySelector("#product-id").value || `produit-${Date.now()}`;
+      const currentProduct = products.find((product) => product.id === id);
+      const uploadedImage = await readImageFile(document.querySelector("#product-file").files[0]);
+      const typedImage = document.querySelector("#product-image").value.trim();
+      const nextProduct = {
+        id,
+        name: document.querySelector("#product-name").value.trim(),
+        category: document.querySelector("#product-category").value,
+        imageUrl: uploadedImage || typedImage || currentProduct?.imageUrl || "assets/images/products/smoking-noir.jpg"
+      };
+      if (currentProduct) products = products.map((product) => product.id === id ? nextProduct : product);
+      else products.push(nextProduct);
+      saveProducts();
+      resetForm();
+      renderProducts();
+    });
+    grid.addEventListener("click", (event) => {
+      const editId = event.target.dataset.edit;
+      const deleteId = event.target.dataset.delete;
+      if (editId) {
+        const product = products.find((item) => item.id === editId);
+        if (product) fillForm(product);
+      }
+      if (deleteId && confirm("Supprimer ce produit ?")) {
+        products = products.filter((product) => product.id !== deleteId);
+        saveProducts();
+        renderProducts();
+      }
+    });
+
+    loadProducts();
+    renderProducts();
+    if (window.location.hash === "#admin") document.querySelector("#admin-open").click();
   </script>
 </body>
 </html>
